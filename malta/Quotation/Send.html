@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hacer cotizacion</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="js/libs/jQueryUI/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/modal.css" rel="stylesheet" />
+    <link href="css/loader.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="fixHeader">
+        &nbsp;&nbsp;&nbsp;
+        <img src="../Content/img/email/mc.png" width="190" height="102" />
+        <span class="title">Enviar</span>
+        <a href="#" class="closeSession" id="btnLogout">Salir&nbsp;
+            <img src="img/LogOut.png" />
+        </a>
+        <span class="userName">
+            <img src="img/User.png" />&nbsp;
+            <span id="userName">Diego Ortega Carreto
+            </span>
+        </span>
+    </div>
+    <div class="content login send">
+        <div class="box">
+            <br />
+            <span class="titleLogin fs18">Valida tus datos para finalizar tu cotización</span><br />
+            <br />
+            <span class="titleLogin">Nombre</span>
+            <input id="nombre" type="text" placeholder="Ingresa tu nombre" required />
+            <span class="titleLogin">Teléfono</span>
+            <input id="telefono" type="text" placeholder="Ingresa tu teléfono" required />
+            <span class="titleLogin">Celular</span>
+            <input id="celular" type="text" placeholder="Ingresa tu celular" required />
+            <span class="titleLogin">Email</span>
+            <input id="email" type="text" placeholder="Ingresa tu email" required />
+            <span class="titleLogin">Comentarios</span>
+            <textarea id="comentarios" rows="3" cols="50" required placeholder="Ingresa tus comentarios">
+            </textarea>
+            <input id="send" type="button" value="Hacer pedido" />
+        </div>
+    </div>
+    <script src="js/libs/jquery-1.7.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE=" crossorigin="anonymous"></script>
+    <script src="js/Utilities.js"></script>
+    <script src="js/Send.js"></script>
+    <div id="preLoading">
+        Loading...
+    </div>
+</body>
+</html>

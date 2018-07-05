@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Precios Futuros por Especie";
+}
+
+<link href="~/Content/css/prevision/animate.css" rel="stylesheet" />
+<link href="~/Content/css/prevision/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/prevision/map.css" rel="stylesheet" />
+<link href="~/Content/css/prevision/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/Content/css/prevision/owl.theme.default.min.css" rel="stylesheet" />
+<link href="~/Content/css/prevision/style.css" rel="stylesheet" />
+
+<div class="image_sep">
+    <img src="~/Content/img/prevision/portada_porcino.jpg" />
+</div>
+<div id="mainWrap" class="container">
+    <div class="row clearfix">
+        <h1>Precio Futuros por especie</h1>
+        <div class="col-md-4">
+            <div>
+                <img src="images/n-cerdos.svg" width="90%">
+            </div>
+            <hr>
+            <div id="estados" class="clearfix">
+                <ul>
+                    <li><a href="#" data-target="edos/porcino/sonora">Sonora</a></li>
+                    <li><a href="#" data-target="edos/porcino/yucatan">Yucat&aacute;n</a></li>
+                    <li><a href="#" data-target="edos/porcino/guanajuato">Guanajuato</a></li>
+                    <li><a href="#" data-target="edos/porcino/jalisco">Jalisco</a></li>
+                    <li><a href="#" data-target="edos/porcino/michoacan">Michoac&aacute;n</a></li>
+                    <li><a href="#" data-target="edos/porcino/nuevo_leon">Nuevo Le&oacute;n</a></li>
+                    <li><a href="#" data-target="edos/porcino/puebla">Puebla</a></li>
+                    <li><a href="#" data-target="edos/porcino/queretaro">Quer&eacute;taro</a></li>
+                    <li><a href="#" data-target="edos/porcino/veracruz">Veracruz</a></li>
+                    <li><a href="#" data-target="edos/porcino/distrito_federal">Distrito Federal</a></li>
+                    <li><a href="#" data-target="edos/porcino/aguascalientes">Aguascalientes</a></li>
+                    <li><a href="#" data-target="edos/porcino/durango">Durango</a></li>
+                    <li><a href="#" data-target="edos/porcino/colima">Colima</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+            <div id="content" class="clearfix">
+                <h2>Selecciona un estado y observa las estadisticas historicas y de proyección.</h2>
+            </div>
+        </div>
+
+    </div>
+    <!--work-->
+</div>
+<script src="~/Scripts/porcino/bootstrap.min.js"></script>
+<script src="~/Scripts/porcino/Chart.bundle.min.js"></script>
+<script src="~/Scripts/porcino/map_script.js"></script>

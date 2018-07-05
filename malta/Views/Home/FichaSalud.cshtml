@@ -1,0 +1,187 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ficha Salud";
+}
+
+@if (ViewBag.numero > 0)
+{
+    @model IEnumerable<malta.Models.SaludCompleto>
+    List<malta.Models.SaludCompleto> lista = (List<malta.Models.SaludCompleto>)ViewBag.lst_productos;
+    var arry = new malta.Models.SaludCompleto();
+    arry = lista[0];
+    int contadorp = 0;
+    int Id = arry.Id;
+    string Nombre = arry.Nombre;
+    string Descripcion = arry.Descripcion;
+    string Imagen = arry.Imagen;
+    string Tipo = arry.Tipo;
+    string Indicaciones = arry.Indicaciones;
+    string Contraindicaciones = arry.Contraindicaciones;
+    string Administracion = arry.Administracion;
+    string Interaccion = arry.Interaccion;
+    string Reacciones = arry.Reacciones;
+    string Uso = arry.Uso;
+    string Brochure = arry.Brochure;
+    string Vademecum = arry.Vademecum;
+    string Video = arry.Video;
+    string Params_dist = arry.Params_dist;
+
+    <section id="header-qualian" class="title">
+        <div class="row">
+            <div class="large-3 medium-3 columns">
+                <img src="~/@Imagen" alt="">
+            </div>
+            <div class="large-6 medium-6 columns">
+                <div class="breadcrumbs">
+                    <img src="@Url.Content("~/")Content/img/logo-qualian-b.svg" alt="Qualian" style="margin-bottom:1rem;">
+                    
+                    <a href="/Home/Salud">Prevención y Salud </a>   /   <strong>@Nombre</strong>
+                </div>
+                <h3>@Nombre</h3>                
+                @if (Descripcion != "")
+                {<p>@Descripcion</p>}
+                <p>ESPECIES</p>
+                <div class="qualian-especies">
+                    @foreach (var item in ViewBag.lst_productos)
+                    {
+                        string x = "especie";
+                        string tipo = item.TipoDetalle + "";
+                        if (tipo.Contains(x))
+                        {
+                            <img src="@Url.Content("~/")@(""+item.ImagenDetalle)" alt="">
+                        }
+                    }
+                </div>
+                <!--<p>Bovinos (Productores de leche), Porcinos, Ovinos, Caninos y Felinos domésticos</p>-->
+            </div>
+            <div class="large-3 medium-3 columns">
+                <p>COMPARTIR</p>
+                <ul>
+                    <li><a href="mailto:soporteaclientes@maltatexo.com.mx?subject=Productos&body=<b>http://200.78.224.220/Home/FichaSalud?id_salud=@Id</b>"><i class="fa fa-envelope-o"></i> Email</a></li>
+                    
+                    <li><a target="_blank" href="@Video"><i class="fa fa-youtube-play"></i> Videos Relacionados</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i>  Encontrar distribuidor</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="ficha-presentaciones">
+        <div class="row">
+            <div class="large-4 medium-4 columns">
+                
+                <h4>Presentaciones</h4>
+                <div class="row text-center small-up-1 medium-up-2 large-up-2 ">
+                    @foreach (var item in ViewBag.lst_productos)
+                    {
+                        string x2 = "presentacion";
+                        string tipo2 = item.TipoDetalle + "";
+                        string imagen_detalle = "" + item.ImagenDetalle;
+                        if (imagen_detalle.Equals("")) { imagen_detalle = Imagen; }
+                        if (tipo2.Contains(x2))
+                        {
+
+
+                            <div class="column">
+                                <img src="@Url.Content("~/")@imagen_detalle" alt="">
+                                <p>@("" + item.DescripcionDetalle)</p>
+                            </div>
+
+                        }
+                    }
+                    <div class="text-center">
+                        <img src="@Url.Content("~/")Content/img/logo-qualian.svg" alt="" style="margin-bottom:1rem;">
+                        <br>
+                        <small><strong>Consulte al Médico Veterinario <br> Su venta requiere receta médica</strong></small>
+                    </div>
+                </div>
+                
+                <!--<p><strong>Consulte al Médico Veterinario <br> Su venta requiere receta médica</strong></p>-->
+            </div>
+            <div class="large-8 medium-8 columns">
+                @if (Indicaciones != "")
+                {
+                    <h4>Indicaciones</h4>
+                    <p>@Indicaciones</p>
+                }
+                @if (Contraindicaciones != "")
+                {
+                    <h4>Contraindicaciones</h4>
+                    <p>@Contraindicaciones</p>
+                }
+                
+                @if (Administracion != "")
+                {
+                    <h4>Vía de Administración</h4>
+                    <p>@Administracion</p>
+                }
+                
+                @if (Interaccion != "")
+                {
+                    <h4>Interacción</h4>
+                    <p>@Interaccion</p>
+                }
+                @if (Reacciones != "")
+                {
+                    <h4>Reacciones</h4>
+                    <p>@Reacciones</p>
+                }
+                @if (Uso != "")
+                {
+                    <h4>Uso:</h4>
+                    <p>@Uso</p>
+                }
+                <h4>Dosis</h4>
+                <ul>
+                    @foreach (var item in ViewBag.lst_productos)
+                    {
+                        string x2 = "dosis";
+                        string tipo2 = item.TipoDetalle + "";
+                        if (tipo2.Contains(x2))
+                        {
+                            <li>@("" + item.DescripcionDetalle)</li>
+                        }
+                    }
+                </ul>
+
+                <h4>Formula</h4>
+                <ul>
+                    @foreach (var item in ViewBag.lst_productos)
+                    {
+                        string x2 = "formula";
+                        string tipo2 = item.TipoDetalle + "";
+                        if (tipo2.Contains(x2))
+                        {
+                            <li>@("" + item.DescripcionDetalle)</li>
+                        }
+                    }
+                </ul>
+                <h4>Advertencias</h4>
+                <ul>
+                    @foreach (var item in ViewBag.lst_productos)
+                    {
+                        string x2 = "advertencia";
+                        string tipo2 = item.TipoDetalle + "";
+                        if (tipo2.Contains(x2))
+                        {
+                            <li>@("" + item.DescripcionDetalle)</li>
+                        }
+                    }
+                </ul>
+                
+            </div>
+        </div>
+    </section>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+        $(function () {
+            var ROOT = '@Url.Content("~/")';
+
+            var img = 'Content/img/bg-qualian.jpg';
+
+            $('#header-qualian').parallax({ imageSrc:  ROOT + img });            
+
+        });
+
+</script>

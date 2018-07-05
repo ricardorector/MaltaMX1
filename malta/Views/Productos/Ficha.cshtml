@@ -1,0 +1,469 @@
+﻿@{
+    ViewBag.Title = "Ficha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<malta.Models.ProductoJoin>
+@{
+    var item = new malta.Models.ProductoJoin();
+
+    item = ViewBag.Lst_productos;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var ROOT = '@Url.Content("~/")';
+
+            var img = '@Html.DisplayFor(modelItem => item.Marca_background)';
+            var existe = UrlExists(ROOT + img);
+            if (!existe) { img = 'Content/img/bg-perros.jpg'; }
+
+
+            $('#header-cerdo').parallax({ imageSrc: ROOT + img });
+
+        });
+        function UrlExists(url) {
+            var http = new XMLHttpRequest();
+            http.open('HEAD', url, false);
+            http.send();
+            return http.status != 404;
+        }
+    </script>
+    string Vademecum = @Html.DisplayFor(modelItem => item.Vademecum) + "";
+    string Video = @Html.DisplayFor(modelItem => item.Video) + "";
+    string imagen = @Html.DisplayFor(modelItem => item.Imagen) + "";
+    string imagen2 = @Html.DisplayFor(modelItem => item.Marca_imagen) + "";
+    string imagen3 = @Html.DisplayFor(modelItem => item.Especie_imagen) + "";
+    if (imagen.Equals("")) imagen = imagen2;
+    if (imagen.Equals("")) imagen = imagen3;
+    string Id_especie = @Html.DisplayFor(modelItem => item.Id_especie) + "";
+    string Id_marca = @Html.DisplayFor(modelItem => item.Id_marca) + "";
+    string Id_especie_nombre = item.Especie;
+    string Linea_id = item.Id_linea;
+    string Linea_nombre = item.Linea_nombre;
+
+
+    string Id_marca_nombre = item.Marca;
+    string Nombre_producto = item.Nombre;
+    string plan_especie = item.Especie_plan;
+    string plan_producto = "";
+
+    
+
+   
+
+
+}
+
+
+  @if ((ViewBag.plan).Count > 0){
+      List<malta.Models.ProductoJoin>lista = (List<malta.Models.ProductoJoin>)ViewBag.plan;
+      plan_producto = lista[0].Detalle_descripcion;
+  }else
+  {
+      plan_producto = plan_especie;
+  }
+        <section id="header-cerdo" class="title">
+            <br />
+            <div class="row">
+                <div class="large-3 medium-3 columns">
+                    <img src="@Url.Content("~/")@imagen" alt="">
+                </div>
+                <div class="large-6 medium-6 columns">
+
+                    <div class="breadcrumbs" id="@Id_especie_nombre">
+                        <!--Especie\Marca\Linea\producto-->
+                        <a href="/Productos/especie?id_especie=@Id_especie">@Id_especie_nombre</a> /
+                        <a href="/Productos/Productos?id_linea=@Linea_id">@Linea_nombre</a>   /   
+                        <strong>@Nombre_producto</strong>
+                    </div>
+
+                    <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                    
+                    @if (Id_especie.Equals("12"))
+                    {
+                        <a class="button" href="http://www.maltacleyton.com.mx/diagnostico/Preproduccion/login.php" target="_blank">Obtén el diagnóstico de tu granja</a>
+                    }
+                    else
+                    {
+                        if (!plan_producto.Equals(""))
+                        {
+                            if (plan_producto.Contains("http"))
+                            {
+                            <a class="button" href="@plan_producto" target="_blank">Más información </a>}
+                            else
+                            {
+                            <a class="button" href="@Url.Content("~/")@plan_producto" target="_blank">Descargar planes de alimentación </a>
+                            }
+
+                        }
+                    }
+                </div>
+                <div class="large-3 medium-3 columns">
+                    <h5>Compartir</h5>
+                    <ul>
+                        <li><a href="mailto:soporteaclientes@maltatexo.com.mx?subject=Productos&body=<b>http://200.78.224.220/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)</b>"><i class="fa fa-envelope-o"></i> Email</a></li>
+
+                        @if (!(@Vademecum).IsEmpty())
+                        {
+                            <li><a target="_blank" href="@Url.Content("~/")@Vademecum"><i class="fa fa-book"></i> Vademécum</a></li>}
+                        @if (!(Video).IsEmpty())
+                        {
+                            <li><a target="_blank" href="@Video"><i class="fa fa-youtube-play"></i> Videos Relacionados</a></li>}
+                            <li><a href="/Distribuidor"><i class="fa fa-map-marker"></i>  Encontrar distribuidor</a></li>
+                    </ul>
+                    <br />
+                </div>
+            </div>
+        </section>
+@{ 
+    string sProteina = item.Proteina;
+    string sGrasa = item.Grasa;
+    string sHumedad = item.Humedad;
+    string sCeniza = item.Ceniza;
+    string sFibra = item.Fibra;
+    string sEln = item.Eln ;
+    int contador_analisis = 0;
+    if (sProteina != null) { contador_analisis++; }
+    if (sGrasa != null) { contador_analisis++; }
+    if (sHumedad != null) { contador_analisis++; }
+    if (sCeniza != null) { contador_analisis++; }
+    if (sFibra != null) { contador_analisis++; }
+    if (sEln != null) { contador_analisis++; }
+}
+        <section id="analisis-garantizado">
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4>Análisis Garantizado</h4>
+                </div>
+            </div>
+        @if ((ViewBag.nutricion).Count > 0)
+        {
+            List<malta.Models.ProductoJoin> item_nutricion = (List<malta.Models.ProductoJoin>)ViewBag.nutricion;
+            string nutricion_txt = item_nutricion[0].Detalle_descripcion;
+            string nutricion_img = item_nutricion[0].Detalle_imagen;
+            <div class="row small-up-2 medium-up-3 large-up-3">
+                <div>
+                    @if (!nutricion_img.Equals(""))
+                    {
+                        <img src="@Url.Content("~/")@nutricion_img" alt="">
+                    }
+                    @if (!nutricion_txt.Equals(""))
+                    {
+                        @Html.Raw(System.Web.HttpUtility.HtmlDecode(nutricion_txt))
+                    }                    
+                </div>
+            </div>
+        }
+        else
+        {
+            if (contador_analisis <= 4)
+            {
+                <div class="row small-up-2 medium-up-3 large-up-@contador_analisis">
+                    @if (sProteina != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-proteina.svg" alt="">
+                            <h4>Proteína</h4>
+                            <div class="proteina circle"><strong>@sProteina%</strong></div>
+                        </div>
+                    }
+                    @if (sGrasa != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-grasa.svg" alt="">
+                            <h4>Grasa</h4>
+                            <div class="grasa circle"><strong>@sGrasa%</strong></div>
+                        </div>
+                    }
+                    @if (sHumedad != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-humedad.svg" alt="">
+                            <h4>Humedad</h4>
+                            <div class="humedad circle"><strong>@sHumedad%</strong></div>
+                        </div>
+                    }
+                    @if (sCeniza != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-ceniza.svg" alt="">
+                            <h4>Ceniza</h4>
+                            <div class="ceniza circle"><strong>@sCeniza%</strong></div>
+                        </div>
+                    }
+                    @if (sFibra != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-fibra.svg" alt="">
+                            <h4>Fibra</h4>
+                            <div class="fibra circle"><strong>@sFibra%</strong></div>
+                        </div>
+                    }
+                    @if (sEln != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-eln.svg" alt="">
+                            <h4>ELN</h4>
+                            <div class="eln circle"><strong>@sEln%</strong></div>
+                        </div>
+                    }
+                </div>
+                }
+                else
+                {
+                <div class="row small-up-2 medium-up-3 large-up-3">
+                    @if (sProteina != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-proteina.svg" alt="">
+                            <h4>Proteína</h4>
+                            <div class="proteina circle"><strong>@sProteina%</strong></div>
+                        </div>
+                    }
+                    @if (sGrasa != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-grasa.svg" alt="">
+                            <h4>Grasa</h4>
+                            <div class="grasa circle"><strong>@sGrasa%</strong></div>
+                        </div>
+                    }
+                    @if (sHumedad != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-humedad.svg" alt="">
+                            <h4>Humedad</h4>
+                            <div class="humedad circle"><strong>@sHumedad%</strong></div>
+                        </div>
+                    }
+                    @if (sCeniza != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-ceniza.svg" alt="">
+                            <h4>Ceniza</h4>
+                            <div class="ceniza circle"><strong>@sCeniza%</strong></div>
+                        </div>
+                    }
+                    @if (sFibra != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-fibra.svg" alt="">
+                            <h4>Fibra</h4>
+                            <div class="fibra circle"><strong>@sFibra%</strong></div>
+                        </div>
+                    }
+                    @if (sEln != null)
+                    {
+                        <div class="column">
+                            <img src="~/Content/img/i-eln.svg" alt="">
+                            <h4>ELN</h4>
+                            <div class="eln circle"><strong>@sEln%</strong></div>
+                        </div>
+                    }
+                </div>
+                }
+
+                }
+
+</section>
+
+        <section id="ficha-beneficios">
+            <div class="row small-up-1 medium-up-2 large-up-2">
+                @if ((ViewBag.beneficio).Count > 0)
+                {
+                    <div class="column">
+                        <h4>Beneficios</h4>
+                        <ul>
+                            @foreach (var beneficio in (List<malta.Models.ProductoJoin>)ViewBag.beneficio)
+                            {
+                                string img = beneficio.Detalle_imagen;
+                                if (img.Equals(""))
+                                {
+                                    <li> @Html.DisplayFor(modelItem => beneficio.Detalle_descripcion)</li>
+                                }
+                                else
+                                {
+                                    <li><img src="@Url.Content("~/")@img" alt=""> @Html.DisplayFor(modelItem => beneficio.Detalle_descripcion)</li>
+                                }
+                            }
+                        </ul>
+
+                    </div>
+                }
+                @if ((ViewBag.medicamento).Count > 0)
+                {
+                    <div class="column">
+                        <h4>Medicamentos disponibles</h4>
+                        <ul>
+                            @foreach (var medicamento in (List<malta.Models.ProductoJoin>)ViewBag.medicamento)
+                            {
+                                <li> @Html.DisplayFor(modelItem => medicamento.Detalle_descripcion)</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                @if ((ViewBag.indicacion).Count > 0)
+                {
+                    <div class="column">
+                        <h4>Instrucciones de uso</h4>
+                        <ul>
+                            @foreach (var indicacion in (List<malta.Models.ProductoJoin>)ViewBag.indicacion)
+                            {
+                                string img = indicacion.Detalle_imagen;
+                                if (img.Equals(""))
+                                {
+                                    <li> @Html.DisplayFor(modelItem => indicacion.Detalle_descripcion)</li>
+                                }
+                                else
+                                {
+                                    <li><img src="@Url.Content("~/")@img" alt=""> @Html.DisplayFor(modelItem => indicacion.Detalle_descripcion)</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </section>
+
+        <section id="ficha-presentaciones">
+            <div class="row">
+                @if ((ViewBag.presentacion).Count > 0)
+                {
+                    <div class="large-6 medium-6 columns">
+
+                        <h4>Presentaciones</h4>
+                        <div class="row text-center small-up-2 medium-up-3 large-up-3">
+                            @foreach (var presentacion in (List<malta.Models.ProductoJoin>)ViewBag.presentacion)
+                            {
+                                string imagen_presentacion = @Html.DisplayFor(modelItem => presentacion.Detalle_imagen) + "";
+                                if (imagen_presentacion.Equals("")) imagen_presentacion = imagen;
+
+                                <div class="column">
+                                    <img src="@Url.Content("~/")@imagen_presentacion" alt="">
+                                    <p>@Html.DisplayFor(modelItem => presentacion.Detalle_descripcion)</p>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                }
+
+
+                <div class="large-6 medium-6 columns" id="calculadora_nuti">
+                    <h4>Calculadora Nutricional</h4>
+
+                    <div class="large-12 columns">
+                        <label for="alimento">Alimento</label>
+                        <select name="alimentoCerdo" id="alimentoAnimal"></select>
+                    </div>
+                    <div class="large-12 columns">
+                        <label for="pigNum">Número de animales que alimentarás</label>
+                        <input class="num" type="number" value="" placeholder="50">
+                    </div>
+                    <div class="large-12 columns">
+                        <a id="btnCalc" class="button">Calcular</a>
+                    </div>
+
+                    <div style="display: none;" class="large-12 columns resultados"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function optionExists(val) {
+                return $("#alimentoAnimal option").filter(function () {
+                    return this.value === val;
+                }).length !== 0;
+            }
+            $(function () {
+
+                var idproducto = '@Html.DisplayFor(modelItem => item.Id)';
+                var exists = optionExists(idproducto);
+                var nombreoriginal = '@Html.DisplayFor(modelItem => item.Nombre)';
+                if (exists) {
+                    $('#alimentoAnimal')
+                    .find('option')
+                    .remove()
+                    .end()
+                    .append('<option selected  class="bolsaAlimento"  value="' + idproducto + '">' + nombreoriginal + '</option>');
+                } else {
+                    $('#calculadora_nuti').hide();
+                }
+
+                var ROOT = '@Url.Content("~/")';
+
+
+                // Circles
+                var proteina = parseFloat('@Html.DisplayFor(modelItem => item.Proteina)');
+                proteina /= Math.pow(10, 2);
+                $('.proteina.circle').circleProgress({
+                    value: proteina,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 5 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+                
+                var grasa = parseFloat('@Html.DisplayFor(modelItem => item.Grasa)');
+                grasa /= Math.pow(10, 2);
+                $('.grasa.circle').circleProgress({
+                    value: grasa,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 6 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+                var humedad = parseFloat('@Html.DisplayFor(modelItem => item.Humedad)');
+                humedad /= Math.pow(10, 2);
+                $('.humedad.circle').circleProgress({
+                    value: humedad,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 6 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+                var ceniza = parseFloat('@Html.DisplayFor(modelItem => item.Ceniza)');
+                ceniza /= Math.pow(10, 2);
+                $('.ceniza.circle').circleProgress({
+                    value: ceniza,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 6 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+                var eln = parseFloat('@Html.DisplayFor(modelItem => item.Eln)');
+                eln /= Math.pow(10, 2);
+                $('.eln.circle').circleProgress({
+                    value: eln,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 6 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+
+                var fibra = parseFloat('@Html.DisplayFor(modelItem => item.Fibra)');
+                fibra /= Math.pow(10, 2);
+                $('.fibra.circle').circleProgress({
+                    value: fibra,
+                    size: 150,
+                    lineCap: "round",
+                    startAngle: -Math.PI / 6 * 3,
+                    thickness: 8,
+                    fill: { gradient: ['#92b0cc', '#294974'] },
+                    emptyFill: "rgba(0, 0, 0, .1)",
+                });
+            });
+        </script>

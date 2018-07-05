@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var ROOT = '@Url.Content("~/")';
+                var img = 'Content/img/bg-qualian2.jpg';
+                $('#header-qualian').parallax({ imageSrc: ROOT + img });
+
+            });            
+        </script>
+
+<section id="header-qualian" class="title">
+    <div class="row">
+        <div class="large-12 columns text-center">
+            <div class="frase">
+                <div class="logo-qualian">
+                    <img src="@Url.Content("~/")Content/img/logo-qualian.svg" alt="Qualian">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+    
+
+
+<!--
+<div id="nav-especie">
+    <ul>
+        <li><a href="/Productos" class="active">Productos</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Artículos de interés</a></li>
+        <li><a href="#">Calculadora Nutricional</a></li>
+        <li><a href="#">Planes de alimentación</a></li>
+    </ul>
+</div>
+-->
+
+
+
+
+<section id="loop-productos">
+    <div class="row smal-up-2 medium-up-3 large-up-3 text-center">
+
+        @model IEnumerable<malta.Models.SaludLista>
+
+        @foreach (var item in (List<malta.Models.SaludLista>)ViewBag.lst_productos)
+        {
+            <div class="column">
+                <div class="foto-producto">
+                    <a href="/Home/FichaSalud?id_salud=@Html.DisplayFor(modelItem => item.Id)">
+                        <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                    </a>
+                </div>
+                <h3><a href="/Home/FichaSalud?id_salud=@Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Nombre)</a></h3>
+                <p><a href="/Home/FichaSalud?id_salud=@Html.DisplayFor(modelItem => item.Id)" class="button small">Conoce más</a></p>
+            </div>
+        }
+
+
+    </div>
+</section>
+

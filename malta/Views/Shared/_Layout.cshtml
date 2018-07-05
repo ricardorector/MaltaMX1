@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="icon" href="~/Content/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="~/Content/img/favicon.png" type="image/x-icon">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="Azolis Nucleo,Nutris Seca,Nutris Reprolact,Nutris Alto,Enerlis Optimo,Enerlis Classico,Enerlis Leche,Enerlis Seguro,Enerlis Super,Enerlis Desempeño,Enerlis Royal,Apileche Plus,Lechero Macro,Lechero Norteño,Mezcla Ganadera Lechero,Lechero Campero,Ganaleche,Establero,Ganaleche Altas Productoras,Lechero Sinaloense,Suplemento Energético,Becerras Ultra,Ababe Plus,Abahor Plus,Leche Pellet,Alimento Vacas Lecheras,Ganaleche Multiusos,Inicia Corderos,Borregos Forte,Borregas Reproductoras,Borregos Forte,ovinos,Capri Crecimiento,Capri Leche,caprinosCapri Inicio UltraYoupigGrowpigCarnerina,Pork,Cerdipower,Superpork,Salud animal,Cuidado de las especies,Pecuario,acuicultura,mascotas,Etapa de engorda,alimentación para ganado,ganancias de pesos y alto crecimiento,Alimento para el crecimiento de cerdos,Preiniciador medicado para lechones,Alimento para pavos,Alimento para el crecimiento y desarrollo,Alimento para codornices,Potros en crecimiento,Alimentacion de potros de un año en adelante,combinación exacta de ingredientes,larvas de camarón,nutrición para cachorros y adultos,consiente y cuida a tu gato,Desinfectante de supercies,Api-Aba Premium,Api-Aba Balance,Api-Carne RE,Beef Rol Max,Beef Rol Expo,Mezcla Regia,Sosten Multiusos,Estiaje Sosten,Ganacarne Multiusos,Malta Carne,Mezcla Texi Engorda,Mezcla Ganadera,Jovis Rico,Jovis Temprano,Jovis Crecimiento,Jovis Mix,Azolis Bypass,Poder Canino,Pet's Joy,Master Can,Minino Plus,Minino Dúo,Minino Yum,Qalian,Tripuricide,Tyloral,Vulkan,Septicid,Milicoli,Hypersol,Alimento para pavos,Alimento para codornices,Potros en crecimiento,Alimentacion de potros de un año en adelante,Alimento para caballos de paseo y trabajo,criaderos,larvas de camarón,Alimento para perros,nutrición para cachorros y adultos,Snack,Alimento de calidad,Alimento para mininos,consiente y cuida a tu gato,Huevo,Carne,Precio (s),mercado,pronóstico,pescado,proyección,distribuidor,localizador,carne de cerdo,maltacleyton,Youpig! Baby,Youpig! Inicio,Genesa,Golden Egg,Pollorina,Pone oro,gallina,Gana aves multiusos,Pollorina Plus,Super Baby,Multi Aves,Caporina,Caporina Premium,Pollo especial,Pavo Max premium,Pavo Ganador,Codorniz Postura,Royal Horse,Pell Rol,Caballo Ganador,Grano de Oro,Starlap,Conejo Ganador,Nutriconejos,Api Camarón,Bernaqua,Biospheres,MPEX,Royal Oyster,Royal Pepper Protein,Royal Caviar,Royal Seafood,Vitellus,MeM Camarón,Grow sh trucha,Trucha,Biongerling Tilapia,Tilapia,Grow sh bagre,Bagre,The Top Choice,Best Choice">
+    <meta name="author" content="">
+
+    <meta property="og:title" content="MaltaCleyton" />
+    <meta property="og:type" content="Sitio Web" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="http://maltacleyton.com.mx/" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title | maltaCleyton</title>
+
+    @Styles.Render("~/Content/css/app.css")
+    @Styles.Render("~/Content/css/malta.css")    
+    @Scripts.Render("~/Content/js/modernizr.custom.js")
+    <!-- Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22233423-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-22233423-1');
+    </script>
+</head>
+<body>
+    @Html.Partial("_NavProductos")    
+        @Html.Partial("_Nav")
+        @Html.Partial("_NavContacto")
+
+        
+        
+                @RenderBody()
+           
+
+        @Html.Partial("_Footer")
+        @RenderSection("scripts", required: false)
+        
+
+
+       
+</body>
+</html>

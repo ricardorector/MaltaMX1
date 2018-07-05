@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Busqueda";
+}
+
+
+@model IEnumerable<malta.Models.ProductosBuscador>
+@{
+    List<malta.Models.ProductosBuscador> lista = (List<malta.Models.ProductosBuscador>)ViewBag.lst_productos;
+    var primer_array = new malta.Models.ProductosBuscador();
+    string nombre_marca = "";
+    string desc_marca = "";
+    string img_marca = "";
+    if (ViewBag.numero > 0)
+    {
+
+        primer_array = lista[0];
+        nombre_marca = primer_array.Marca_nombre;
+        desc_marca = primer_array.Marca_descripcion;
+        img_marca = primer_array.Marca_imagen;
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var ROOT = '@Url.Content("~/")';                
+                
+                img = 'Content/img/bg-perros.jpg'; 
+                $('#header-cerdo').parallax({ imageSrc: ROOT + img });
+
+            });
+            function UrlExists(url) {
+                var http = new XMLHttpRequest();
+                http.open('HEAD', url, false);
+                http.send();
+                return http.status != 404;
+            }
+        </script>
+        <section id="header-cerdo" class="title">
+            <div class="row">
+                <div class="large-8 medium-8 columns">
+                    <div class="frase">
+                        <p class="lead">Materias primas de alta calidad, seleccionadas para un alto desempeño en cada etapa.</p>
+                        <p>para cada necesidad… un producto</p>
+                    </div>
+                    <br />
+                </div>
+                <div class="large-4 medium-4 columns">
+                    
+                </div>
+            </div>
+        </section>
+    }
+}
+<!--
+
+<div id="nav-especie">
+    <ul>
+        <li><a href="/Productos" class="active">Productos</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Artículos de interés</a></li>
+        <li><a href="#">Calculadora Nutricional</a></li>
+        <li><a href="#">Planes de alimentación</a></li>
+    </ul>
+</div>
+-->
+<section class="linea-productos">
+    <div class="linea-salud">
+        <div class="row">
+            <div class="large-12 medium-12 columns text-center">
+                <div class="descripcion-linea">
+                    <h3>Resultado busqueda <br /><strong> @Html.Raw(ViewBag.buscar)</strong></h3>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="loop-productos">
+    <div class="row smal-up-2 medium-up-3 large-up-3 text-center">
+
+
+
+        @foreach (var item in (List<malta.Models.ProductosBuscador>)ViewBag.lst_productos)
+        {            
+            <div class="column">
+                <div class="foto-producto">
+                    <a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)">
+                        <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                    </a>
+                </div>
+                <h3><a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Nombre)</a></h3>
+                <p><a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)" class="button small">Conoce más</a></p>
+            </div>
+        }
+
+
+    </div>
+</section>

@@ -1,0 +1,164 @@
+
+.inputT {
+    height: 22px !important;
+    width: 65px !important;
+    color: #000 !important;
+    padding: 0 !important;
+    border: 1px solid #2b686e !important;
+    background-color: #fff !important;
+    text-align: center !important;
+}
+
+.header {
+    background-color: #327a81;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    height: 22px !important;
+}
+
+.body {
+    background-color: #fff;
+    height: 420px;
+    overflow-y: auto;
+}
+
+
+img {
+    height: 35px;
+    width: 30px;
+}
+
+#tData tr td input, textarea {
+    margin: 0 0 0 15px !important;
+    padding: 0 !important;
+}
+
+.table-users {
+    border: 1px solid #327a81;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 1024px;
+    height: 500px;
+    background-color: #327a81 !important;
+}
+
+table {
+    width: 100%;
+}
+
+    table td, table th {
+        color: #2b686e;
+        padding: 0;
+        border: 0;
+    }
+
+    table th {
+        padding: 10px;
+    }
+
+    table td {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 12px;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        font-size: 14px;
+        border-bottom: 2px solid #000;
+    }
+
+    table tr:nth-child(2n) {
+        background-color: white;
+    }
+
+    table tr:nth-child(2n+1) {
+        background-color: #fbfbfb;
+    }
+
+.tdCenter {
+    text-align: center !important;
+}
+
+.btnNext {
+    width: 150px !important;
+    display: inline !important;
+    float: right;
+    color: white !important;
+    background-color: #3c454e !important;
+}
+
+.boxtable {
+    position: absolute !important;
+    margin: auto !important;
+    top: 250px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 1024px !important;
+}
+
+.truck {
+    color: #000 !important;
+    font-size: 14px;
+    margin-left: 22px;
+}
+
+.imgTruck {
+    height: 110px;
+    width: 230px;
+}
+
+.divContainer {
+    margin-top: -152px;
+}
+
+.bgTruck {
+    background-color: green;
+    height: 110px;
+    width: 230px;
+    margin-left: 205px;
+}
+
+.realBgTruck {
+    background-color: #fff;
+    height: 69px;
+    width: 230px;
+}
+
+.porcen {
+    color: black;
+    font-weight: bold;
+    margin: 30px 0 0 125px;
+    position: absolute;
+    font-size: 22px;
+}
+
+.summary {
+    width: 400px;
+    float: right;
+}
+
+    .summary .tr1 td {
+        font-size: 16px !important;
+        text-align: right !important;
+    }
+
+    .summary .tr2 td {
+        color: #fff !important;
+        background-color: #3c454e !important;
+        font-size: 16px !important;
+        text-align: right !important;
+    }
+
+    .summary .td100 {
+        width: 192px !important;
+        padding-right: 24px;
+    }

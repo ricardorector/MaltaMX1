@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Neovia cerca de ti</h2>
+                <p class="lead">Estamos donde nos necesitas. Tenemos cobertura en todo el territorio nacional a través de nueve plantas y un centro de distribución.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="plantas">
+    <div class="row">
+        <div class="large-12 columns text-center">
+            <img src="~/Content/img/mapa-plantas.png" alt="">
+            <br><br>
+        </div>
+    </div>
+    <div class="row small-up-1 medium-up-4 large-up-3">
+        <div class="column">
+            <h3><span class="c-azul">1.</span> Bajío</h3>
+            <p>Km. 282 Carretera Panamericana Villagran, Guanajuato, C.P. 38000. Tel. 01 800 719 3237</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">2.</span> Culiacán</h3>
+            <p>Calle Miguel Hidalgo No. 5483 Oriente, Col. El Barrio Culiacán, Sinaloa, C.P. 80080. Tel. 01 800 710 9812</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">3.</span> Guadalajara</h3>
+            <p>Calzada Gobernador Curiel No. 3601, Zona Industrial Guadalajara Jalisco, C.P. 44940. Tel. 01 800 719 3242</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">4.</span> Yucatán</h3>
+            <p>Carretera Mérida-Uman Km 18, Uman, Yucatán, C.P. 97390. Tel. 01 (988) 933 0079, 01 800 713 7575</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">5.</span> Nuevo León</h3>
+            <p>Calle Nueva San Rafael y Vía Tampico S/N Colonia San Rafael Gualdalupe Nuevo León , C.P. 67110. Tel. 01 (81) 8286 3100, 01 800 719 3240</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">6. </span>Morelos</h3>
+            <p>Carretera Yecapixtla - Agua Hedionda KM 2.5, Yecapixtla, Morelos, C.P. 62820. Tel. 01 (735) 356 9130.</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">7.</span> Santa Julia</h3>
+            <p>Av. Panteón No. 200-1, Atotonilquillo, Chapala, Jalisco, C.P. 45930. Tel. 01 (376) 737 2410, 737 2504, 2480</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">8.</span> Tlaxcala</h3>
+            <p>Av. Tlaxcala Sur No. 75, Col. Panzacola, Papalotla de Xicohtencatl, Tlaxcala, C.P. 90796. Tel. 01 (222) 309 3200, 01 800 710 1467.</p>
+        </div>
+        <div class="column">
+            <h3><span class="c-azul">9.</span> Texcoco</h3>
+            <p>Carretera los Reyes-Texcoco Km. 16.3, Col. San Bernardino, Texcoco, Estado de México, C.P. 56230. Tel. 01 (595) 922 0202, 83 y 86.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <hr>
+            <h3>Centro De Distribución Y Almacenamiento Comalcalco</h3>
+            <p>Carretera Vecinal Comalcalco - Tulipán Km. 1 Colonia Sta. Amalia, Comalcalco, Tabasco. CP. 86370</p>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+    });
+</script>

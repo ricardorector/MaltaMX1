@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Blog";
+}
+
+
+<section id="articulos-header" class="title">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Consulta a nuestros Expertos</h2>
+                <div class="icon-especie">
+                    <img src="@Url.Content("~/")@ViewBag.img_especie" alt="">
+                    <h3>Artículos especie</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="articulos-loop">
+    <div class="row small-up-1 medium-up-2 large-up-1">
+        @model IEnumerable<malta.Models.BlogShort>
+        @foreach (var item in (List<malta.Models.BlogShort>)ViewBag.lst_data)
+        {
+            string desc = item.Descripcion;
+            int max = desc.Length;
+            if (max > 200) { max = 200; }
+
+            <div class="column">
+                <div class="articulo">
+                    <div class="row">
+                        <div class="large-4 medium-4 columns">
+                            <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                        </div>
+                        <div class="large-8 medium-8 columns">
+                            <h4><a href="/Blog/ficha?id=@Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Titulo)</a></h4>
+                            <p>
+                                @Html.Raw(System.Web.HttpUtility.HtmlDecode((desc).Substring(0, max)))...
+                            </p>
+                            <p><a href="/Blog/ficha?id=@Html.DisplayFor(modelItem => item.Id)" class="button small">Leer más</a></p>
+                            <div class="etiquetas">
+                                <ul>
+                                    @{
+                                        string lst_etiquetas = item.Etiquetas;
+                                        string[] etiquetas = lst_etiquetas.Split('|');
+                                        foreach (string eti in etiquetas)
+                                        {
+                                            <li><a href="/Blog/Etiqueta?etiqueta=@eti"><i class="fa fa-tag"></i> @eti</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                        }
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#articulos-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+    });
+</script>

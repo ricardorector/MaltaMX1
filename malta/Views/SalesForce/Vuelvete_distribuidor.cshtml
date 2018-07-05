@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "Vuelvete distribuidor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Vuélvete Distribuidor</h2>
+                <p></p>
+            </div>
+        </div>
+        <!-- <div class="large-4 medium-4 columns">
+            <img src="img/imago-malta.svg" alt="">
+        </div> -->
+    </div>
+</section>
+<section id="vuelvete-distribuidor">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+
+                <p><div id="error"></div></p>
+            </div>
+
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTA: Agregue el siguiente <META> elemento a su página <HEAD>.  Si es   -->
+            <!--  preciso, modifique el parámetro charset para especificar el conjunto    -->
+            <!--  de caracteres de su página HTML.                                        -->
+            <!--  ----------------------------------------------------------------------  -->
+
+            <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTA: Agregue el siguiente <FORM> elemento a su página.                 -->
+            <!--  ----------------------------------------------------------------------  -->
+
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                <input type=hidden name="oid" value="00D36000000p9u5">
+                <input type=hidden name="retURL" value="http://www.maltacleyton.com.mx">
+                <input type=hidden id="lead_source" name="lead_source" value="Website maltaCleyton">
+                <input type=hidden id="country_code" name="country_code" value="MX">
+                <input type=hidden id="00N3600000OlRDO" name="00N3600000OlRDO" value="PEC">
+
+                <!--  ----------------------------------------------------------------------  -->
+                <!--  NOTA: Estos campos son elementos de depuración opcionales. Elimine      -->
+                <!--  los comentarios de estas líneas si desea realizar una prueba en el      -->
+                <!--  modo de depuración.                                                     -->
+                <!--  <input type="hidden" name="debug" value=1>                              -->
+                <!--  <input type="hidden" name="debugEmail"                                  -->
+                <!--  value="aldo.gonzalez@surec.com.mx">                                     -->
+                <!--  ----------------------------------------------------------------------  -->
+
+                <label for="first_name">Nombre *</label><input id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+                <label for="last_name">Apellidos *</label><input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+
+                <label for="mobile">Celular *</label><input id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
+
+                <label for="email">Email *</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+                <label for="state_code">Estado/Provincia *</label><select id="state_code" name="state_code">
+                    <option value="">--Ninguno--</option>
+                    <option value="AG">Aguascalientes</option>
+                    <option value="BC">Baja California</option>
+                    <option value="BS">Baja California Sur</option>
+                    <option value="CM">Campeche</option>
+                    <option value="DF">CDMX</option>
+                    <option value="CS">Chiapas</option>
+                    <option value="CH">Chihuahua</option>
+                    <option value="CO">Coahuila</option>
+                    <option value="CL">Colima</option>
+                    <option value="DG">Durango</option>
+                    <option value="ME">Estado de México</option>
+                    <option value="GT">Guanajuato</option>
+                    <option value="GR">Guerrero</option>
+                    <option value="HG">Hidalgo</option>
+                    <option value="JA">Jalisco</option>
+                    <option value="MI">Michoacán</option>
+                    <option value="MO">Morelos</option>
+                    <option value="NA">Nayarit</option>
+                    <option value="NL">Nuevo León</option>
+                    <option value="OA">Oaxaca</option>
+                    <option value="PB">Puebla</option>
+                    <option value="QE">Querétaro</option>
+                    <option value="QR">Quintana Roo</option>
+                    <option value="SL">San Luis Potosí</option>
+                    <option value="SI">Sinaloa</option>
+                    <option value="SO">Sonora</option>
+                    <option value="TB">Tabasco</option>
+                    <option value="TM">Tamaulipas</option>
+                    <option value="TL">Tlaxcala</option>
+                    <option value="VE">Veracruz</option>
+                    <option value="YU">Yucatán</option>
+                    <option value="ZA">Zacatecas</option>
+                </select><br>
+
+                Medio preferido de contacto *<select id="00N3600000RBPAc" name="00N3600000RBPAc" title="Medio preferido de contacto">
+                    <option value="">--Ninguno--</option>
+                    <option value="RedesSociales">Redes Sociales</option>
+                    <option value="Telefono">Teléfono</option>
+                    <option value="CorreoElectronico">Correo Electrónico</option>
+                </select><br>
+
+                Tipo de prospecto *<select id="00N3600000HVACf" name="00N3600000HVACf" title="Tipo de prospecto">
+                    <option value="">--Ninguno--</option>
+                    <option value="Comercializador">Comercializador</option>
+                    <option value="Dueño">Dueño</option>
+                    <option value="Estudiante">Estudiante</option>
+                    <option value="Exportación">Exportación</option>
+                    <option value="Pequeño productor">Pequeño productor</option>
+                    <option value="Semitecnificado">Semitecnificado</option>
+                    <option value="Tecnificado">Tecnificado</option>
+                    <option value="Veterinario">Veterinario</option>
+                </select><br>
+
+                ¿Deseas inscribirte a nuestro boletin para recibir promociones e informacion relevante a tus necesidades? <input id="00N3600000RE2Bj" name="00N3600000RE2Bj" type="checkbox" value="1" /><br>
+                Comentarios *<textarea id="00N3600000HVTwW" name="00N3600000HVTwW" rows="3" type="text" wrap="soft"></textarea><br>
+                <div id="captcha"></div>
+                <br />
+                <button type="button" id="validar" class="button">Validar</button>
+                <input type="submit" name="submit" id="enviar" class="button" value="Enviar">
+            </form>
+        </div>
+
+    </div>
+</section>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    var verifyCallback = function (response) {
+        $('#validar').show();
+    };
+
+    var onloadCallback = function () {
+        grecaptcha.render('captcha', {
+            'sitekey': '6LcZkCAUAAAAAJc-xi735cVyQFPxmB7pbDt0vmk6',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+  
+    
+    $('#validar').click(function () {
+        
+        $('#error').html("");
+        var validar = fnValidar();
+        console.log(validar);
+        if (validar == '') {
+            $('#validar').hide();
+            $('#enviar').show();
+
+        } else {
+            
+            $('#error').html(validar);
+            $('input[name=first_name]').focus();
+        }
+    });
+    
+    function fnValidar() {
+        var mensaje = "";
+        console.log("validar2");
+        if ($("input[name=first_name]").val() == '') { mensaje += "* indica tu nombre<br>"; }
+        if ($("input[name=last_name]").val() == '') { mensaje += "* indica tus apellidos<br>"; }
+        if ($("input[name=mobile]").val() == '') { mensaje += "* indica tu celular<br>"; }
+        if ($("input[name=email]").val() == '') { mensaje += "* indica tu email<br>"; }
+        if ($("#00N3600000HVTwW").val() == '') { mensaje += "* indica tus comentarios<br>"; }
+
+        if ($("select[name=state_code]").val() == '') { mensaje += "* selecciona un estado<br>"; }
+        if ($("select[name=00N3600000RBPAc]").val() == '') { mensaje += "* selecciona un medio de contacto<br>"; }
+        if ($("select[name=00N3600000HVACf]").val() == '') { mensaje += "* selecciona un tipo de prospecto<br>"; }
+        return mensaje;
+
+    }
+    $(function () {
+        $('#enviar').hide();
+        $('#validar').hide();
+        
+        
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+    });
+</script>

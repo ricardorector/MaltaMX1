@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "WebToLead";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Vuélvete Distribuidor</h2>
+                <p></p>
+            </div>
+        </div>
+        <!-- <div class="large-4 medium-4 columns">
+            <img src="img/imago-malta.svg" alt="">
+        </div> -->
+    </div>
+</section>
+<section id="vuelvete-distribuidor">
+    <div class="row">
+        <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+            <div class="large-6 medium-6 columns">
+                <input type=hidden name="oid" value="00DQ000000EeIJB">
+                <input type=hidden name="retURL" value="http://www.maltacleyton.com.mx/home.php">
+                <label for="nombre">Nombre<input id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="" /></label><br>
+                <label for="apellido">Apellidos</label><input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                <label for="celular">Celular</label><input id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
+                <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                <label for="estado">
+                    Estado/Provincia
+                    <select id="state_code" name="state_code">
+                        <option value="">--Ninguno--</option>
+                        <option value="AG">Aguascalientes</option>
+                        <option value="BC">Baja California</option>
+                        <option value="BS">Baja California Sur</option>
+                        <option value="CM">Campeche</option>
+                        <option value="DF">CDMX</option>
+                        <option value="CS">Chiapas</option>
+                        <option value="CH">Chihuahua</option>
+                        <option value="CO">Coahuila</option>
+                        <option value="CL">Colima</option>
+                        <option value="DG">Durango</option>
+                        <option value="GT">Guanajuato</option>
+                        <option value="GR">Guerrero</option>
+                        <option value="HG">Hidalgo</option>
+                        <option value="JA">Jalisco</option>
+                        <option value="ME">Mexico State</option>
+                        <option value="MI">Michoacán</option>
+                        <option value="MO">Morelos</option>
+                        <option value="NA">Nayarit</option>
+                        <option value="NL">Nuevo León</option>
+                        <option value="OA">Oaxaca</option>
+                        <option value="PB">Puebla</option>
+                        <option value="QE">Querétaro</option>
+                        <option value="QR">Quintana Roo</option>
+                        <option value="SL">San Luis Potosí</option>
+                        <option value="SI">Sinaloa</option>
+                        <option value="SO">Sonora</option>
+                        <option value="TB">Tabasco</option>
+                        <option value="TM">Tamaulipas</option>
+                        <option value="TL">Tlaxcala</option>
+                        <option value="VE">Veracruz</option>
+                        <option value="YU">Yucatán</option>
+                        <option value="ZA">Zacatecas</option>
+                    </select>
+                </label><br>
+            </div>
+            <div class="large-6 medium-6 columns">
+                <label for="lead_source">
+                    Origen del prospecto
+                    <select id="lead_source" name="lead_source">
+                        <option value="">--Ninguno--</option>
+                        <option value="Otros">Otros</option>
+                        <option value="Visita de Campo">Visita de Campo</option>
+                        <option value="Email">Email</option>
+                        <option value="Evento Asociaciones">Evento Asociaciones</option>
+                        <option value="Evento Cliente">Evento Cliente</option>
+                        <option value="Exposición">Exposición</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Live Agent">Live Agent</option>
+                        <option value="Teléfono">Teléfono</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Website Gallos">Website Gallos</option>
+                        <option value="Website Ganador">Website Ganador</option>
+                        <option value="Website Solo Caballos">Website Solo Caballos</option>
+                        <option value="Website MaltaCleyton">Website MaltaCleyton</option>
+                        <option value="Website Solo Mininos">Website Solo Mininos</option>
+                        <option value="Website Royal Horse">Website Royal Horse</option>
+                    </select>
+                </label><br>
+                <label for="medio">
+                    Medio Preferido de Contacto:
+                    <select id="00NQ0000001Wx7d" name="00NQ0000001Wx7d" title="Medio Preferido de Contacto">
+                        <option value="">--Ninguno--</option>
+                        <option value="RedesSociales">Redes Sociales</option>
+                        <option value="Telefono">Teléfono</option>
+                        <option value="CorreoElectronico">Correo electrónico</option>
+                    </select>
+                </label><br>
+                <label for="division">
+                    División:
+                    <select id="00N3600000OlRDO" name="00N3600000OlRDO" title="División">
+                        <!--
+                        <option value="">--Ninguno--</option>
+                        <option value="ACU">ACU</option>
+                        <option value="ESP">ESP</option>
+                        <option value="EXP">EXP</option>
+                        <option value="FAR">FAR</option>
+                        <option value="IMX">IMX</option>
+                        <option value="MAS">MAS</option>
+                        <option value="MUL">MUL</option>
+                        -->
+                        <option value="PEC">PEC</option>
+                    </select>
+                </label><br>
+                <label for="tipo">
+                    Tipo de prospecto:
+                    <select id="00N3600000HVACf" name="00N3600000HVACf" title="Tipo de prospecto">
+                        <option value="Website Malta Cleyton">Website Malta Cleyton</option>
+                      
+                    </select>
+                </label><br>
+                <!-- <input type="submit" name="submit" class="button"> -->
+                <button type="submit" name="submit" class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+    });
+</script>

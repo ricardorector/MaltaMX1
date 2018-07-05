@@ -1,0 +1,56 @@
+﻿<div id="nav-productos">
+    <a class="switchNav"><img src="~/Content/img/imago-malta.svg" alt=""><span class="text-link"> maltaCleyton</span></a>
+    
+        @Html.Raw(ViewBag.switchNav)
+     <!--<a href="/Home/Salud"><img src="~/Content/img/e-salud.svg" alt=""><span class="text-link"> Prevención y Salud</span></a>    -->
+</div>
+
+<div id="nav-nosotros" class="nav-especie">
+    <h2>Nosotros</h2>
+    <a class="closebtn">&times;</a>
+    <a href="/Home/Nosotros"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Nosotros</span></a>
+    <a href="/Productos/Marca"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Productos</span></a>    
+    <a href="/Home/Cursos"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Cursos en línea</span></a>
+    <a href="/Distribuidor"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Dónde comprar</span></a>
+    <a href="/Home/BolsaTrabajo"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Bolsa de trabajo</span></a>
+    <a href="/SalesForce/Contacto"><img src="~/Content/img/e-empty.svg" alt=""><span class="text-link"> Contacto</span></a>
+</div>
+
+
+@Html.Raw(ViewBag.nav)
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(function () {
+            var $menuElems = $('.switchNav');
+            var $closeMenu = $('.closebtn');
+            var $btnChat = $('.openChat');
+            var $closeChat = $('.closebtnChat');
+
+            $menuElems.each(function (i) {
+                $(this).on('click', function () {                    
+                    $("@Html.Raw(ViewBag.nav_close)").removeClass('nav-open');
+                    switch (i) {
+                        case 0:
+                            $('#nav-nosotros').toggleClass('nav-open');
+                            break;
+                        
+                        @Html.Raw(ViewBag.switch_nav);
+                        default:
+                            console.log('no le puchaste bien :(');
+                    }
+                });
+            });
+            $closeMenu.click(function () {
+                $('.nav-especie').removeClass('nav-open');
+            });
+            $btnChat.click(function () {
+                $('#chat').toggleClass('nav-contacto-open');
+                console.log('CLIC!');
+            });
+            $closeChat.click(function () {
+                $('#chat').removeClass('nav-contacto-open');
+            });
+        
+    });
+
+</script>

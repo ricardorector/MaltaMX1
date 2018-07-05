@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Bolsa de Trabajo";
+}
+<section id="nosotros-header">
+    <div class="row">
+        <div class="large-8 medium-8 columns">
+            <div class="frase">
+                <h2>¿Quieres trabajar con nosotros?</h2>
+            </div>
+        </div>
+        <div class="large-4 medium-4 columns text-right">
+            <p><a href="http://intranet.maltacleyton.com.mx/login.php" class="button" style="margin-top:2rem;" target="_blank">Recursos Humanos</a></p>
+        </div>
+    </div>
+</section>
+<section id="contacto">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+
+                <p><div id="error"></div></p>
+            </div>
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTA: Agregue el siguiente <META> elemento a su página <HEAD>.  Si es   -->
+            <!--  preciso, modifique el parámetro charset para especificar el conjunto    -->
+            <!--  de caracteres de su página HTML.                                        -->
+            <!--  ----------------------------------------------------------------------  -->
+
+            <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTA: Agregue el siguiente <FORM> elemento a su página.                 -->
+            <!--  ----------------------------------------------------------------------  -->
+
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+                <input type=hidden name="orgid" value="00D36000000p9u5">
+                <input type=hidden name="retURL" value="http://maltacleyton.com.mx/">
+                <input type="hidden" name="origin" value="Web - maltaCleyton">
+
+                <!--  ----------------------------------------------------------------------  -->
+                <!--  NOTA: Estos campos son elementos de depuración opcionales. Elimine      -->
+                <!--  los comentarios de estas líneas si desea realizar una prueba en el      -->
+                <!--  modo de depuración.                                                     -->
+                <!--  <input type="hidden" name="debug" value=1>                              -->
+                <!--  <input type="hidden" name="debugEmail"                                  -->
+                <!--  value="ebarrera@mx.neovia-group.com">                                   -->
+                <!--  ----------------------------------------------------------------------  -->
+
+                <label for="name">Nombre del contacto *</label><input id="name" maxlength="80" name="name" size="20" type="text" /><br>
+
+                <label for="company">Compañía</label><input id="company" maxlength="80" name="company" size="20" type="text" /><br>
+
+                <label for="email">Email *</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+                <label for="phone">Teléfono *</label><input id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+                Ciudad *<input id="00N3600000EfZMQ" maxlength="30" name="00N3600000EfZMQ" size="20" type="text" /><br>
+
+                <label for="type">Tipo *</label><select id="type" name="type">
+                    <option value="">--Ninguno--</option>
+                    <option value="Pregunta">Pregunta</option>
+                    <option value="Problema">Problema</option>
+                    <option value="Servicio">Servicio</option>
+                </select><br>
+
+                Código de Promoción <input id="00N3600000EgLBT" maxlength="20" name="00N3600000EgLBT" size="20" type="text" /><br>
+
+                <label for="subject">Asunto *</label><input id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+                <label for="description">Descripción *</label><textarea id="description" name="description"></textarea><br>
+                <!-- <input type="submit" name="submit" class="button"> -->
+                <div id="captcha"></div>
+
+                <button type="button" id="validar" class="button">Validar</button>
+                <input type="submit" name="submit" id="enviar" class="button" value="Enviar">
+
+            </form>
+        </div>
+
+    </div>
+</section>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $('#validar').click(function () {
+
+        $('#error').html("");
+        var validar = fnValidar();
+        console.log(validar);
+        if (validar == '') {
+            $('#validar').hide();
+            $('#enviar').show();
+        } else {
+
+            $('#error').html(validar);
+            $('input[name=name]').focus();
+        }
+    });
+    function fnValidar() {
+        var mensaje = "";
+        console.log("validar2");
+        if ($("input[name=name]").val() == '') { mensaje += "* indica tu nombre<br>"; }
+        if ($("input[name=email]").val() == '') { mensaje += "* indica tu email<br>"; }
+        if ($("input[name=phone]").val() == '') { mensaje += "* indica tu teléfono<br>"; }
+        if ($("input[name=00N3600000EfZMQ]").val() == '') { mensaje += "* indica tu ciudad<br>"; }        
+        if ($("input[name=subject]").val() == '') { mensaje += "* indica tu asunto<br>"; }
+        if ($("#description").val() == '') { mensaje += "* indica tu descripción<br>"; }
+
+        if ($("select[name=type]").val() == '') { mensaje += "* selecciona tipo<br>"; }
+        
+        return mensaje;
+
+    }
+    var verifyCallback = function (response) {
+        $('#validar').show();
+    };
+
+    var onloadCallback = function () {
+        grecaptcha.render('captcha', {
+            'sitekey': '6LcZkCAUAAAAAJc-xi735cVyQFPxmB7pbDt0vmk6',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+    $(function () {
+        $('#enviar').hide();
+        $('#validar').hide();
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+    });
+</script>

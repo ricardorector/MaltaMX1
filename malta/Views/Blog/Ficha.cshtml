@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ficha";
+}
+@model IEnumerable<malta.Models.blog>
+@{
+    string img_especie = @ViewBag.img_especie;
+    if (img_especie.Equals(""))img_especie = "Content/img/imago-malta.svg";
+        else img_especie = @ViewBag.img_especie;
+
+}
+@{
+    var item = new malta.Models.blog();
+    item = ViewBag.lst_data;
+
+        <section id="articulos-header" class="title">
+            <div class="row">
+                <div class="large-9 medium-9 columns">
+                    <div class="frase">
+                        <h2>Consulta a nuestros Expertos</h2>
+                        <div class="icon-especie">
+                            <img src="@Url.Content("~/")@img_especie" alt="">
+                            <h3>@item.Titulo</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="large-3 medium-3 columns">
+                    <h5>Compartir</h5>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> Email</a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fa fa-facebook-official"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="articulos">
+            <div class="row">
+                <div class="large-4 medium-4 columns">
+                    <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                </div>
+                <div class="large-8 medium-8 columns">
+                    <h3>@Html.DisplayFor(modelItem => item.Subtitulo)</h3>
+
+
+                    @{
+                        if (item.Formato != 2)
+                        {
+                            <p class="fecha">@Html.DisplayFor(modelItem => item.Fecha)</p>
+                            <p class="fuente">@Html.DisplayFor(modelItem => item.Fuente)</p>
+                            <p class="fuente">@Html.DisplayFor(modelItem => item.Autor)</p>
+                        }
+                    }
+
+
+                    @{
+                        string desc = "";
+                        if (!String.IsNullOrEmpty(item.Descripcion))
+                        {
+                            desc = (item.Descripcion).ToString();
+                        }
+                    }
+
+                    <p class="lead">@Html.Raw(System.Web.HttpUtility.HtmlDecode(desc))</p>
+
+
+                    <div class="etiquetas">
+                        <ul>
+                            @{
+                                if (!String.IsNullOrEmpty(item.Etiquetas))
+                                {
+                                    string lst_etiquetas = item.Etiquetas;
+                                    string[] etiquetas = lst_etiquetas.Split('|');
+                                    foreach (string eti in etiquetas)
+                                    {
+                                    <li><a href="/Blog/Etiqueta?etiqueta=@eti"><i class="fa fa-tag"></i> @eti</a></li>
+                                        }
+                                    }
+                                }
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#articulos-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+    });
+</script>

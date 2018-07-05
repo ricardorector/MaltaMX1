@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Especies";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<malta.Models.Marcas_lineas>
+@{
+    List<malta.Models.Marcas_lineas> lista = (List<malta.Models.Marcas_lineas>)ViewBag.Lst_marcas;
+    var primer_array = new malta.Models.Marcas_lineas();
+    if (ViewBag.numero > 0)
+    {
+        primer_array = lista[0];
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function () {
+            var ROOT = '@Url.Content("~/")';
+            var img = '@Html.DisplayFor(modelItem => primer_array.Background_especie)';
+            var existe = UrlExists(ROOT + img);
+            if (!existe) { img = 'Content/img/bg-perros.jpg'; }
+            $('#header-cerdo').parallax({ imageSrc: ROOT + img });
+
+        });
+            function UrlExists(url) {
+                var http = new XMLHttpRequest();
+                http.open('HEAD', url, false);
+                http.send();
+                return http.status != 404;
+            }
+        </script>
+        <section id="header-cerdo" class="title">
+            <div class="row">
+                <div class="large-8 medium-8 columns">
+                    <div class="frase">
+                        <p class="lead">Materias primas de alta calidad, seleccionadas para un alto desempeño en cada etapa.</p>
+                        <p>para cada necesidad… un producto</p>
+                    </div>
+                </div>
+                <div class="large-4 medium-4 columns">
+                    <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => primer_array.Imagen_especie)" alt="">
+                </div>
+            </div>
+        </section>
+    }
+}
+
+<!--
+<div id="nav-especie">
+    <ul>
+        <li><a href="/Productos/Marcas" class="active">Productos</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Artículos de interés</a></li>
+        <li><a href="#">Calculadora Nutricional</a></li>
+        <li><a href="#">Planes de alimentación</a></li>
+    </ul>
+</div>
+-->
+
+@for (var i = 0; i < ViewBag.numero; i++)
+{
+
+    var item = lista[i];
+    var item2 = lista[i];
+    int id_marca = item.Id;
+    if ((i + 1) < (ViewBag.numero))
+    {
+
+
+        item2 = lista[i + 1];
+        if (item.Id != item2.Id)
+        {
+            item2 = null;
+        }
+    }
+    <section class="linea-productos">
+        <div class="premium-cerdo">
+            <div class="row">
+                <div class="large-3 medium-3 columns">
+                    <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                </div>
+                <div class="large-9 medium-9 columns">
+                    <div class="descripcion-linea">
+                        <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                    </div>
+                    @if (item.Nombre_linea != null)
+                    {
+                        <a class="button" href="/Productos/Productos?id_linea=@Html.DisplayFor(modelItem => item.Id_linea)">@Html.DisplayFor(modelItem => item.Nombre_linea)</a>
+                        try
+                        {
+                            while (item2.Id == id_marca && i < (ViewBag.numero))
+                            {
+                                int a = item.Id;
+                                int b = item2.Id;
+                                if (a == b)
+                                {
+                                    if (!item.Id_linea.Equals(item2.Id_linea))
+                                    {
+                                        <a class="button" href="/Productos/Productos?id_linea=@Html.DisplayFor(modelItem => item2.Id_linea)">@Html.DisplayFor(modelItem => item2.Nombre_linea)</a>
+                                    }
+
+
+                                    if ((i + 1) < (ViewBag.numero))
+                                    {
+                                        i = i + 1;
+                                        item = item2;
+                                        id_marca = item.Id;
+                                        item2 = lista[i];
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+}

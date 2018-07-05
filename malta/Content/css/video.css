@@ -1,0 +1,47 @@
+﻿.principalVideo {
+    background-color: transparent;
+    object-fit: fill;
+    float: left !important;
+}
+
+.video {
+    height: 1000px;
+    width: 1852px;
+    margin: -96px 0 0 -393px !important;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+
+    .video {
+        height: 800px;
+        width: 1297px !important;
+        margin: -96px 0 0 -115px !important;
+    }
+}
+
+@media only screen (min-width: 600px) and (max-width: 1024px) {
+
+    .video {
+        height: 800px;
+        width: 1106px !important;
+        margin: -96px 0 0 -115px !important;
+    }
+}
+
+@media only screen (min-width: 600px) and (max-width: 600px) {
+
+    .video {
+        height: 270px;
+        width: 414px !important;
+        margin: -95px 0 0 -5px !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .video {
+        height: 270px;
+        width: 314px !important;
+        margin: -95px 0 0 5px !important;
+    }
+}

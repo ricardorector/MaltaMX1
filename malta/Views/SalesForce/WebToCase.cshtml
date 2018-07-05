@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "WebToCase";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Contacto</h2>
+                <p>Envíanos tus comentarios</p>
+            </div>
+        </div>
+        <!-- <div class="large-4 medium-4 columns">
+            <img src="img/imago-malta.svg" alt="">
+        </div> -->
+    </div>
+</section>
+<section id="contacto">
+    <div class="row">
+        <form action="https://cs3.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+            <div class="large-6 medium-6 columns">
+                <input type=hidden name="orgid" value="00DQ000000EeIJB">
+                <input type=hidden name="retURL" value="http://www.maltacleyton.com.mx/home.php">
+                <label for="nombre">Nombre del contacto <input id="name" maxlength="80" name="name" size="20" type="text" placeholder="nombre completo" /></label><br>
+                <label for="compania">Compañía <input id="company" maxlength="80" name="company" size="20" type="text" placeholder="Compañía" /></label><br>
+                <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" placeholder="contacto@dominio.com" /><br>
+                <label for="telefono">Teléfono<input id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="" /></label><br>
+                <label for="website">Sitio Web<input id="00N3600000EfZMQ" maxlength="30" name="00N3600000EfZMQ" size="20" type="text" placeholder="www.sitio.com" /></label><br>
+            </div>
+            <div class="large-6 medium-6 columns">
+                <label for="tipo">
+                    Tipo
+                    <select id="type" name="type">
+                        <option value="">--Ninguno--</option>
+                        <option value="Question">Pregunta</option>
+                        <option value="Problem">Problema</option>
+                        <option value="Service">Servicio</option>
+                    </select>
+                </label><br>
+                <label for="promo">Código de Promoción: <input id="00N3600000EgLBT" maxlength="20" name="00N3600000EgLBT" size="20" type="text" placeholder="código" /></label><br>
+                <label for="asunto">Asunto<input id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="asunto" /></label> <br>
+                <label for="descripcion">
+                    Descripción
+                    <textarea name="description" placeholder="Descripción"></textarea>
+                </label><br>
+                <input type="checkbox" required> Acepto términos y aviso de privacidad <br />
+                <!-- <input type="submit" name="submit" class="button"> -->
+                <button type="submit" name="submit" class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+    });
+</script>

@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Mapa Sitio";
+}
+
+
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Mapa de sitio</h2>
+            </div>
+        </div>
+        <!-- <div class="large-4 medium-4 columns">
+            <img src="img/imago-malta.svg" alt="">
+        </div> -->
+    </div>
+</section>
+<section id="mapa-sitio">
+    <div class="row">
+        <div class="large-3 medium-3 columns">
+            <h3>MaltaCleyton</h3>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/Productos/Marca">Productos</a></li>
+                <li><a href="/Home/Nosotros">Nosotros</a></li>
+                <li><a href="/Home/Cursos">Cursos</a></li>
+                <li><a href="/Distribuidor">Dónde Comprar</a></li>
+                <li><a href="/SalesForce/Contacto">Contacto</a></li>
+                <li><a href="/Home/BolsaTrabajo">Bolsa de Trabajo</a></li>
+                <li><a href="/Home/AvisoPrivacidad">Aviso Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="large-3 medium-3 columns">
+            <h3><a href="/Productos/Marca?especie=pecuarios">Pecuarios</a></h3>
+            <ul>
+                <li><a href="/Productos/especie?id_especie=1">Ganado de Carne</a></li>
+                <li><a href="/Productos/especie?id_especie=2">Ganado Lechero</a></li>
+                <li><a href="/Productos/especie?id_especie=3">Borregos</a></li>
+                <li><a href="/Productos/especie?id_especie=4">Cabras</a></li>
+                <li><a href="/Productos/especie?id_especie=5">Cerdos</a></li>
+                <li><a href="/Productos/especie?id_especie=6">Aves de Postura</a></li>
+                <li><a href="/Productos/especie?id_especie=7">Pollo engorda</a></li>
+                <li><a href="/Productos/especie?id_especie=8">Gallos</a></li>
+                <li><a href="/Productos/especie?id_especie=9">Pavos</a></li>
+                <li><a href="/Productos/especie?id_especie=10">Codornices</a></li>
+                <li><a href="/Productos/especie?id_especie=11">Caballos</a></li>
+                <li><a href="/Productos/especie?id_especie=12">Conejos</a></li>
+            </ul>
+        </div>
+        <div class="large-3 medium-3 columns">
+            <h3><a href="/Productos/Marca?especie=mascotas">Mascotas</a></h3>
+            <ul>
+                <li><a href="/Productos/especie?id_especie=17">Perros</a></li>
+                <li><a href="/Productos/especie?id_especie=18">Mininos®</a></li>
+            </ul>
+        </div>
+        <div class="large-3 medium-3 columns">
+            <h3><a href="/Productos/Marca?especie=acuacultura">Acuicultura</a></h3>
+            <ul>
+                <li><a href="/Productos/especie?id_especie=13">Camarones</a></li>
+                <li><a href="/Productos/especie?id_especie=14">Truchas</a></li>
+                <li><a href="/Productos/especie?id_especie=15">Tilapias</a></li>
+                <li><a href="/Productos/especie?id_especie=16">Bagres</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+    });
+</script>

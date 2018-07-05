@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+<link href="~/Content/css/video.css" rel="stylesheet" />
+<link href="~/Content/css/slider.css" rel="stylesheet" />
+<div id="hero">
+    <div class="expanded row large-collapse medium-collapse">
+        <div class="large-4 medium-4 columns">
+            <div id="intro-pecuario" class="home-especie">
+                <a href="/Productos/Marca?especie=pecuarios">Pecuarios</a>
+            </div>
+        </div>
+        <div class="large-4 medium-4 columns">
+            <div id="intro-mascotas" class="home-especie">
+                <a href="/Productos/Marca?especie=mascotas">Mascotas</a>
+            </div>
+        </div>
+        <div class="large-4 medium-4 columns">
+            <div id="intro-acuacultura" class="home-especie">
+                <a href="/Productos/Marca?especie=acuicultura">Acuicultura</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="intro-malta">
+    <div class="row">
+        <!-- <div class="large-6 medium-6 large-offset-6 medium-offset-6 columns" style="background-color:transparent !important; text-align:left !important">-->
+            <video controls ="controls" controlsList="nodownload" class="principalVideo video" >
+                <source src="~/Content/video/Neovia%20ANIMALES_1.mp4" type="video/mp4" />
+            </video>
+         <!--</div>
+
+         <!-- <div class="large-6 medium-6 large-offset-6 medium-offset-6 columns">
+            <p>En maltaCleyton® estamos comprometidos con la plena satisfacción de las necesidades de nuestros clientes y consumidores en el rubro de la nutrición y salud animal. </p>
+            <p>Por ello, contamos con un amplio portafolio de productos para animales de producción, especialidad y compañía a través del cual aseguramos el bienestar de los mismos y la entrega de un alto valor a nuestros clientes.  </p>
+        </div> -->
+
+    </div>
+</div>
+<div id="blog-home">
+    <div class="row">
+        <div class="large-12 columns">
+            <h2 class="float-left">Noticias</h2>
+            <a href="/Blog/noticias" style="text-transform:uppercase;" class="float-right">Ver todas <i class="fa fa-angle-right" style="font-size:.875rem;"></i></a>
+        </div>
+    </div>
+    <div id="nota-home">
+        <div class="row">
+            <div class="NewsOne" style="">
+                <div class="large-offset-1 large-5 medium-5 columns">
+                    <div class="thumb-noticia">
+                        <img id="sliderImg" src="@ViewBag.nota_img" alt="" class="noticias-slider-img">
+                    </div>
+                </div>
+                <div class="large-6 medium-6 end columns noticias-slider-cuerpo">
+                    <a id="sliderLink" href="/Blog/ficha?id=@ViewBag.nota_id&tipo=noticias">
+                        <div class="info-articulo">
+                            <h4 id="sliderTitulo">@ViewBag.nota_titulo</h4> 
+                        </div>
+                    </a>
+                </div>
+            </div>  
+            <div class="noticias-slider">
+                <img id="NewPrev" src="~/Content/img/slider/izquierda.png" height="50" width="50" style="cursor:pointer"/>
+                &nbsp;&nbsp;&nbsp;
+                <img id="NewsNext" src="~/Content/img/slider/derecha.png" height="50" width="50" style="cursor:pointer"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="intro-expertos">
+    <div class="row">
+        <div class="large-1 medium-1 columns">
+            &nbsp;
+        </div>
+
+        <div class="large-10 medium-10 columns">
+
+            <div class="row">
+                <div class="large-10 columns">
+                    <div id="nav-expertos">
+                        <!-- <a href="#"><img src="~/Content/img/e-gatos.svg" alt=""></a> -->
+                        <!-- <a href="#"><img src="~/Content/img/e-perros.svg" alt=""></a> -->
+                        @foreach (var item in (ViewBag.nav_blog))
+                        {
+                        <a href="/Blog?idespecie=|@item.Id|&tipo=articulos">
+                            <img src = "@Url.Content("~/ ")@item.Icono" ></a>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row large-collapse medium-collapse">
+
+                <div class="large-4 columns">
+                    <div id="foto-expertos">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="large-8 columns">
+                    <div id="info-expertos">
+                        <h4>Consulta a nuestros <strong>Expertos</strong></h4>
+                        <div class="pregunta">
+                            <p>En maltaCleyton estamos comprometidos</p>
+                        </div>
+                        <div class="respuesta">
+                            <p>Cada especie es diferente, así también su salud tiene diferentes necesidades</p>
+                        </div>
+                        <p><a href="/Blog?idespecie=|0|&tipo=articulos" class="button"> Conoce más sobre nuestros programas <i class="fa fa-angle-right"></i></a></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="large-1 medium-1 columns">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="~/Scripts/geo.js"></script>
+<script src="~/Scripts/slider.js"></script>
+
+<script type="text/javascript">
+
+    // SoftScroll
+    // smoothScroll.init();
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        var ROOT2 = '@Url.Content("~/")';
+        var img_noticia = '@ViewBag.nota_img';
+        if (img_noticia == "") {
+            // img/bg-templete.jpg
+            img_noticia = 'Content/img/bg-templete.jpg';
+        }
+        $('#nota-home').parallax({ imageSrc: ROOT + 'img/articulos/bg-noticias.jpg' });
+        // Backstretch
+        $("#title").backstretch(["https://source.unsplash.com/category/nature/1600x900"], { duration: 3200, fade: 750 });
+        $("#intro-pecuario").backstretch([ROOT + "img/bg-intro-pecuario.jpg"], { duration: 3200, fade: 750 });
+        $("#intro-mascotas").backstretch([ROOT + "img/bg-intro-mascotas.jpg"], { duration: 3200, fade: 750 });
+        $("#intro-acuacultura").backstretch([ROOT + "img/bg-intro-acuacultura.jpg"], { duration: 3200, fade: 750 });
+        $("#foto-expertos").backstretch([ROOT + "img/foto-expertos-home.jpg"], { duration: 3200, fade: 750 });
+
+        $('#nota-home').parallax({ imageSrc: ROOT2 + img_noticia });
+
+        console.log(ROOT2 + img_noticia);
+        $('#intro-malta').parallax({ imageSrc: ROOT + 'img/bg-inicio-malta.jpg' });
+    });
+
+</script>

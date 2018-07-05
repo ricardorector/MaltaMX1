@@ -1,0 +1,934 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6F8E1A0-CB46-4763-9AB7-02F6B155778C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>malta</RootNamespace>
+    <AssemblyName>malta</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacadeController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Controllers\DistribuidorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrevisionController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\SalesForceController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\blog.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogShort.cs" />
+    <Compile Include="Models\camion.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\correo.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cotizacion.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cotizacionDetalle.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalles_producto.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalles_salud.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DistribuidorCiudad.cs" />
+    <Compile Include="Models\distribuidores.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DistribuidorEstado.cs" />
+    <Compile Include="Models\DistribuidorMarca.cs" />
+    <Compile Include="Models\DistribuidorNombre.cs" />
+    <Compile Include="Models\EspeciesNav.cs" />
+    <Compile Include="Models\Marcas_lineas.cs" />
+    <Compile Include="Models\especies.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lineas.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaltaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaltaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaltaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\marcas.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\medidas.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\planta.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plantilla.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\precios.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductoJoin.cs" />
+    <Compile Include="Models\productos.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductosBuscador.cs" />
+    <Compile Include="Models\ProductosMarca.cs" />
+    <Compile Include="Models\puesto.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\salud.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaludCompleto.cs" />
+    <Compile Include="Models\SaludLista.cs" />
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usuario.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\visitas.cs">
+      <DependentUpon>MaltaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\prevision\animate.css" />
+    <Content Include="Content\css\prevision\bootstrap.min.css" />
+    <Content Include="Content\css\prevision\map.css" />
+    <Content Include="Content\css\prevision\owl.carousel.min.css" />
+    <Content Include="Content\css\prevision\owl.theme.default.min.css" />
+    <Content Include="Content\css\prevision\style.css" />
+    <Content Include="Content\css\slider.css" />
+    <Content Include="Content\css\video.css" />
+    <Content Include="Content\img\acuacultura\bernaqua-linea.png" />
+    <Content Include="Content\img\acuacultura\bernaqua-logo-old.png" />
+    <Content Include="Content\img\acuacultura\caviar-cubeta.png" />
+    <Content Include="Content\img\acuacultura\mem-cubeta.png" />
+    <Content Include="Content\img\acuacultura\red-pepper.png" />
+    <Content Include="Content\img\acuacultura\royal-caviar-lata.png" />
+    <Content Include="Content\img\acuacultura\royal-seafood.png" />
+    <Content Include="Content\img\acuacultura\vitellius-cubeta.png" />
+    <Content Include="Content\img\acuacultura\vitellus-cubeta.png" />
+    <Content Include="Content\img\acuacultura\vitellus.png" />
+    <Content Include="Content\img\articulos\bg-noticias.jpg" />
+    <Content Include="Content\img\articulos\cerdo-01.png" />
+    <Content Include="Content\img\articulos\cerdo-02.png" />
+    <Content Include="Content\img\articulos\cerdo-03.png" />
+    <Content Include="Content\img\articulos\noticia-03.jpg" />
+    <Content Include="Content\img\articulos\noticia-04.jpg" />
+    <Content Include="Content\img\articulos\noticia-1.jpg" />
+    <Content Include="Content\img\articulos\noticia-2.jpg" />
+    <Content Include="Content\img\articulos\Pigs.jpg" />
+    <Content Include="Content\img\bg-aves-postura.jpg" />
+    <Content Include="Content\img\bg-bagres.jpg" />
+    <Content Include="Content\img\bg-borregos.jpg" />
+    <Content Include="Content\img\bg-caballos.jpg" />
+    <Content Include="Content\img\bg-cabras.jpg" />
+    <Content Include="Content\img\bg-camarones.jpg" />
+    <Content Include="Content\img\bg-cerdo.jpg" />
+    <Content Include="Content\img\bg-cerdos.jpg" />
+    <Content Include="Content\img\bg-codornices.jpg" />
+    <Content Include="Content\img\bg-conejos.jpg" />
+    <Content Include="Content\img\bg-corderos.jpg" />
+    <Content Include="Content\img\bg-especie.jpg" />
+    <Content Include="Content\img\bg-gallos.jpg" />
+    <Content Include="Content\img\bg-ganado-carne.jpg" />
+    <Content Include="Content\img\bg-ganado-lechero.jpg" />
+    <Content Include="Content\img\bg-gatos.jpg" />
+    <Content Include="Content\img\bg-inicio-malta.jpg" />
+    <Content Include="Content\img\bg-intro-acuacultura.jpg" />
+    <Content Include="Content\img\bg-intro-mascotas.jpg" />
+    <Content Include="Content\img\bg-intro-pecuario.jpg" />
+    <Content Include="Content\img\bg-nosotros-historia.jpg" />
+    <Content Include="Content\img\bg-nosotros-neovia.jpg" />
+    <Content Include="Content\img\bg-nosotros.jpg" />
+    <Content Include="Content\img\bg-noticias.jpg" />
+    <Content Include="Content\img\bg-pavos.jpg" />
+    <Content Include="Content\img\bg-perros.jpg" />
+    <Content Include="Content\img\bg-pollo-engorda.jpg" />
+    <Content Include="Content\img\bg-qualian.jpg" />
+    <Content Include="Content\img\bg-qualian2.jpg" />
+    <Content Include="Content\img\bg-tilapias.jpg" />
+    <Content Include="Content\img\bg-truchas.jpg" />
+    <Content Include="Content\img\camión.png" />
+    <Content Include="Content\img\cerdo\api-aba-cerdo-ganador-40.png" />
+    <Content Include="Content\img\cerdo\malta-cerdo-ganador-5.png" />
+    <Content Include="Content\img\cross.png" />
+    <Content Include="Content\img\email\costales.png" />
+    <Content Include="Content\img\email\facebook.png" />
+    <Content Include="Content\img\email\imago-footer.png" />
+    <Content Include="Content\img\email\logo-maltacleyton.svg" />
+    <Content Include="Content\img\email\mc.jpg" />
+    <Content Include="Content\img\email\mc.png" />
+    <Content Include="Content\img\email\pecuarios.jpg" />
+    <Content Include="Content\img\email\twitter.png" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\foto-expertos-home.jpg" />
+    <Content Include="Content\img\foto-granja.jpg" />
+    <Content Include="Content\img\gallos\gallo-de-oro-super-baby-40.png" />
+    <Content Include="Content\img\gallos\gallo-de-oro-super-baby-5.png" />
+    <Content Include="Content\img\gato\minino-linea.png" />
+    <Content Include="Content\img\gato\vital5.png" />
+    <Content Include="Content\img\header-aves-postura.png" />
+    <Content Include="Content\img\header-bagres.png" />
+    <Content Include="Content\img\header-borregos.png" />
+    <Content Include="Content\img\header-caballo.png" />
+    <Content Include="Content\img\header-caballos.png" />
+    <Content Include="Content\img\header-cabras.png" />
+    <Content Include="Content\img\header-camarones.png" />
+    <Content Include="Content\img\header-cerdo.png" />
+    <Content Include="Content\img\header-cerdos.png" />
+    <Content Include="Content\img\header-codornices.png" />
+    <Content Include="Content\img\header-conejo.png" />
+    <Content Include="Content\img\header-conejos.png" />
+    <Content Include="Content\img\header-cordero.png" />
+    <Content Include="Content\img\header-gallo.png" />
+    <Content Include="Content\img\header-ganado-carne.png" />
+    <Content Include="Content\img\header-ganado-lechero.png" />
+    <Content Include="Content\img\header-gatos.png" />
+    <Content Include="Content\img\header-pavos.png" />
+    <Content Include="Content\img\header-perros.png" />
+    <Content Include="Content\img\header-pollo-engorda.png" />
+    <Content Include="Content\img\header-tilapias.png" />
+    <Content Include="Content\img\header-truchas.png" />
+    <Content Include="Content\img\i-ceniza.svg" />
+    <Content Include="Content\img\i-eln.svg" />
+    <Content Include="Content\img\i-fibra.svg" />
+    <Content Include="Content\img\i-grasa.svg" />
+    <Content Include="Content\img\i-humedad.svg" />
+    <Content Include="Content\img\i-proteina.svg" />
+    <Content Include="Content\img\imago-footer.png" />
+    <Content Include="Content\img\imago-malta.svg" />
+    <Content Include="Content\img\l-cerdo-api-aba.png" />
+    <Content Include="Content\img\l-cerdo-malta.png" />
+    <Content Include="Content\img\l-cerdo-premium.png" />
+    <Content Include="Content\img\l-salud.svg" />
+    <Content Include="Content\img\logo-maltacleyton.svg" />
+    <Content Include="Content\img\logo-qualian-b.svg" />
+    <Content Include="Content\img\logo-qualian.svg" />
+    <Content Include="Content\img\logo-smart-center.svg" />
+    <Content Include="Content\img\mapa-neovia.png" />
+    <Content Include="Content\img\mapa-plantas.png" />
+    <Content Include="Content\img\mapa-plantas.svg" />
+    <Content Include="Content\img\neovia-b.svg" />
+    <Content Include="Content\img\neovia.png" />
+    <Content Include="Content\img\neovia.svg" />
+    <Content Include="Content\img\Neovia_Ss_BZL_QP-01.svg" />
+    <Content Include="Content\img\noticia-04.jpg" />
+    <Content Include="Content\img\pavo\apiaba-pavo-ganador-5.png" />
+    <Content Include="Content\img\pavo\pavo-ganador-5.png" />
+    <Content Include="Content\img\perro\ganador-lineas.png" />
+    <Content Include="Content\img\planta-morelos.jpg" />
+    <Content Include="Content\img\pollo\apiaba-gallina-ganador-5.png" />
+    <Content Include="Content\img\pollo\apiaba-pollo-ganador-1-5.png" />
+    <Content Include="Content\img\pollo\apiaba-pollo-ganador-2-5.png" />
+    <Content Include="Content\img\pollo\apiaba-pollo-oro-balance-20.png" />
+    <Content Include="Content\img\pollo\gallina-ganador.png" />
+    <Content Include="Content\img\pollo\genesa-20.png" />
+    <Content Include="Content\img\pollo\genesa-golden-egg.png" />
+    <Content Include="Content\img\pollo\malta-pollo-ganador-5.png" />
+    <Content Include="Content\img\prevision\bg_galax.jpg" />
+    <Content Include="Content\img\prevision\mapa.png" />
+    <Content Include="Content\img\prevision\portada_inicio.jpg" />
+    <Content Include="Content\img\prevision\n-aves.svg" />
+    <Content Include="Content\img\prevision\n-bovino.svg" />
+    <Content Include="Content\img\prevision\n-caprino.svg" />
+    <Content Include="Content\img\prevision\n-cerdos.svg" />
+    <Content Include="Content\img\prevision\n-huevo.svg" />
+    <Content Include="Content\img\prevision\n-ovino.svg" />
+    <Content Include="Content\img\prevision\portada_porcino.jpg" />
+    <Content Include="Content\img\salud\dt-mousse.png" />
+    <Content Include="Content\img\salud\purlite.png" />
+    <Content Include="Content\img\salud\septicid-nat.png" />
+    <Content Include="Content\img\salud\tripuricide.png" />
+    <Content Include="Content\img\salud\vulkan.png" />
+    <Content Include="Content\img\slider\derecha.png" />
+    <Content Include="Content\img\slider\izquierda.png" />
+    <Content Include="Content\template\RecoverPassword.html" />
+    <Content Include="Content\template\Quotation.html" />
+    <Content Include="Content\video\Neovia ANIMALES_1.mp4" />
+    <Content Include="Quotation\ChangePasswordMail.html" />
+    <Content Include="Quotation\ChangePassword.html" />
+    <Content Include="Quotation\css\comboBox.css" />
+    <Content Include="Quotation\img\camion.png" />
+    <Content Include="Quotation\img\GrisConstelaciones.jpg" />
+    <Content Include="Quotation\js\ChangePasswordMail.js" />
+    <Content Include="Quotation\js\ChangePassword.js" />
+    <Content Include="Quotation\RecoverPassword.html" />
+    <Content Include="Quotation\Quotation.html" />
+    <Content Include="Quotation\css\button.css" />
+    <Content Include="Quotation\css\form.css" />
+    <Content Include="Quotation\css\loader.css" />
+    <Content Include="Quotation\css\modal.css" />
+    <Content Include="Quotation\css\style.css" />
+    <Content Include="Quotation\css\styles.css" />
+    <Content Include="Quotation\css\table.css" />
+    <Content Include="Quotation\img\add-icon.png" />
+    <Content Include="Quotation\img\bg-noticias.jpg" />
+    <Content Include="Quotation\img\delete-icon.png" />
+    <Content Include="Quotation\img\Edit-icon.png" />
+    <Content Include="Quotation\img\LogOut.png" />
+    <Content Include="Quotation\img\User.png" />
+    <Content Include="Quotation\js\Quotation.js" />
+    <Content Include="Quotation\js\libs\base.js" />
+    <Content Include="Quotation\js\libs\base.min.js" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\close.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\closeX.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar-black-border.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar-text-buttons.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar-white-small.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar-white.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar2.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar3.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar4-hover.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\controlbar4.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\fullexpand.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\geckodimmer.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\icon.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\loader.big.black.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\loader.big.white.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\loader.black.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\loader.white.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\beveled.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\custom.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\drop-shadow.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\glossy-dark.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\outer-glow.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\rounded-black.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\outlines\rounded-white.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\resize.gif" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\scrollarrows.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\zoom.png" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\zoomin.cur" />
+    <Content Include="Quotation\js\libs\Highslide\graphics\zoomout.cur" />
+    <Content Include="Quotation\js\libs\Highslide\highslide-full.packed.js" />
+    <Content Include="Quotation\js\libs\Highslide\highslide-ie6.css" />
+    <Content Include="Quotation\js\libs\Highslide\highslide.config.js" />
+    <Content Include="Quotation\js\libs\Highslide\highslide.css" />
+    <Content Include="Quotation\js\libs\Highslide\highslide.js" />
+    <Content Include="Quotation\js\libs\html5.js" />
+    <Content Include="Quotation\js\libs\jquery-1.7.2.min.js" />
+    <Content Include="Quotation\js\libs\jquery.browser.min.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-icons_222222_256x240.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-icons_454545_256x240.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-icons_888888_256x240.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery-ui.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery.datepicker.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery.ui.core.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery.ui.draggable.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery.ui.mouse.js" />
+    <Content Include="Quotation\js\libs\jQueryUI\jquery.ui.widget.js" />
+    <Content Include="Quotation\js\libs\modernizr-2.6.1.min.js" />
+    <Content Include="Quotation\js\libs\oldbrowser.js" />
+    <Content Include="Quotation\js\lists\listadoArchivos.js" />
+    <Content Include="Quotation\js\lists\listadoCapturaHoras.js" />
+    <Content Include="Quotation\js\lists\listadoCheques.js" />
+    <Content Include="Quotation\js\lists\listadoClientes.js" />
+    <Content Include="Quotation\js\lists\listadoEmpresas.js" />
+    <Content Include="Quotation\js\lists\listadoGastos.js" />
+    <Content Include="Quotation\js\lists\listadoHerramientas.js" />
+    <Content Include="Quotation\js\lists\listadoNomina.js" />
+    <Content Include="Quotation\js\lists\listadoPrestamos.js" />
+    <Content Include="Quotation\js\lists\listadoTareas.js" />
+    <Content Include="Quotation\js\lists\listadoTrabajador.js" />
+    <Content Include="Quotation\js\lists\login.js" />
+    <Content Include="Quotation\js\RecoverPassword.js" />
+    <Content Include="Quotation\js\Login.js" />
+    <Content Include="Quotation\js\Send.js" />
+    <Content Include="Quotation\js\Utilities.js" />
+    <Content Include="Quotation\Login.html" />
+    <Content Include="Quotation\Send.html" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\malta.css" />
+    <Content Include="Content\img\bg-templete.jpg" />
+    <Content Include="Content\img\e-aves-postura.svg" />
+    <Content Include="Content\img\e-avestruces.svg" />
+    <Content Include="Content\img\e-bagres.svg" />
+    <Content Include="Content\img\e-borregos.svg" />
+    <Content Include="Content\img\e-caballos.svg" />
+    <Content Include="Content\img\e-cabras.svg" />
+    <Content Include="Content\img\e-camarones.svg" />
+    <Content Include="Content\img\e-cerdos.svg" />
+    <Content Include="Content\img\e-codornices.svg" />
+    <Content Include="Content\img\e-conejos.svg" />
+    <Content Include="Content\img\e-corderos.svg" />
+    <Content Include="Content\img\e-empty.svg" />
+    <Content Include="Content\img\e-gallos.svg" />
+    <Content Include="Content\img\e-ganado-carne.svg" />
+    <Content Include="Content\img\e-ganado-lechero.svg" />
+    <Content Include="Content\img\e-gatos.svg" />
+    <Content Include="Content\img\e-pavos.svg" />
+    <Content Include="Content\img\e-perros.svg" />
+    <Content Include="Content\img\e-pollo-engorda.svg" />
+    <Content Include="Content\img\e-salud.svg" />
+    <Content Include="Content\img\e-tilapias.svg" />
+    <Content Include="Content\img\e-truchas.svg" />
+    <Content Include="Content\img\rumiantes\apiaba-rumiantes-premium-40.png" />
+    <Content Include="Content\img\vital5.png" />
+    <Content Include="Content\js\anim.js" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\calc.js" />
+    <Content Include="Content\js\calcData.js" />
+    <Content Include="Content\js\chart.js" />
+    <Content Include="Content\js\charts\Chart.Bar.js" />
+    <Content Include="Content\js\charts\Chart.Bubble.js" />
+    <Content Include="Content\js\charts\Chart.Doughnut.js" />
+    <Content Include="Content\js\charts\Chart.Line.js" />
+    <Content Include="Content\js\charts\Chart.PolarArea.js" />
+    <Content Include="Content\js\charts\Chart.Radar.js" />
+    <Content Include="Content\js\charts\Chart.Scatter.js" />
+    <Content Include="Content\js\circle-progress.min.js" />
+    <Content Include="Content\js\classie.js" />
+    <Content Include="Content\js\controllers\controller.bar.js" />
+    <Content Include="Content\js\controllers\controller.bubble.js" />
+    <Content Include="Content\js\controllers\controller.doughnut.js" />
+    <Content Include="Content\js\controllers\controller.line.js" />
+    <Content Include="Content\js\controllers\controller.polarArea.js" />
+    <Content Include="Content\js\controllers\controller.radar.js" />
+    <Content Include="Content\js\core\core.animation.js" />
+    <Content Include="Content\js\core\core.canvasHelpers.js" />
+    <Content Include="Content\js\core\core.controller.js" />
+    <Content Include="Content\js\core\core.datasetController.js" />
+    <Content Include="Content\js\core\core.element.js" />
+    <Content Include="Content\js\core\core.helpers.js" />
+    <Content Include="Content\js\core\core.interaction.js" />
+    <Content Include="Content\js\core\core.js" />
+    <Content Include="Content\js\core\core.layoutService.js" />
+    <Content Include="Content\js\core\core.legend.js" />
+    <Content Include="Content\js\core\core.plugin.js" />
+    <Content Include="Content\js\core\core.scale.js" />
+    <Content Include="Content\js\core\core.scaleService.js" />
+    <Content Include="Content\js\core\core.ticks.js" />
+    <Content Include="Content\js\core\core.title.js" />
+    <Content Include="Content\js\core\core.tooltip.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\edg3.resize.js" />
+    <Content Include="Content\js\foundation.min.js" />
+    <Content Include="Content\js\jquery.backstretch.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\malta.js" />
+    <Content Include="Content\js\min\anim-min.js" />
+    <Content Include="Content\js\min\app-min.js" />
+    <Content Include="Content\js\min\calc-min.js" />
+    <Content Include="Content\js\min\calcData-min.js" />
+    <Content Include="Content\js\min\custom-min.js" />
+    <Content Include="Content\js\min\flipclock.min-min.js" />
+    <Content Include="Content\js\min\malta-min.js" />
+    <Content Include="Content\js\min\scrollreveal.min-min.js" />
+    <Content Include="Content\js\modernizr.custom.js" />
+    <Content Include="Content\js\nav.js" />
+    <Content Include="Content\js\panels.min.js" />
+    <Content Include="Content\js\parallax.min.js" />
+    <Content Include="Content\js\photoswipe-ui-default.min.js" />
+    <Content Include="Content\js\photoswipe.min.js" />
+    <Content Include="Content\js\platforms\platform.dom.js" />
+    <Content Include="Content\js\platforms\platform.js" />
+    <Content Include="Content\js\scales\scale.category.js" />
+    <Content Include="Content\js\scales\scale.linear.js" />
+    <Content Include="Content\js\scales\scale.linearbase.js" />
+    <Content Include="Content\js\scales\scale.logarithmic.js" />
+    <Content Include="Content\js\scales\scale.radialLinear.js" />
+    <Content Include="Content\js\scales\scale.time.js" />
+    <Content Include="Content\js\scrollreveal.min.js" />
+    <Content Include="Content\js\smooth-scroll.js" />
+    <Content Include="Content\js\swipe.js" />
+    <Content Include="Content\js\what-input.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\MaltaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MaltaModel.edmx</DependentUpon>
+      <LastGenOutput>MaltaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MaltaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MaltaModel.edmx</DependentUpon>
+      <LastGenOutput>MaltaModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Previsio\aves.html" />
+    <Content Include="Previsio\bovino.html" />
+    <Content Include="Previsio\caprino.html" />
+    <Content Include="Previsio\css\animate.css" />
+    <Content Include="Previsio\css\bootstrap.min.css" />
+    <Content Include="Previsio\css\map.css" />
+    <Content Include="Previsio\css\owl.carousel.min.css" />
+    <Content Include="Previsio\css\owl.theme.default.min.css" />
+    <Content Include="Previsio\css\style.css" />
+    <Content Include="Previsio\huevo.html" />
+    <Content Include="Previsio\images\arrow.png" />
+    <Content Include="Previsio\images\bg_galax.jpg" />
+    <Content Include="Previsio\images\e-aves-postura.svg" />
+    <Content Include="Previsio\images\e-borregos.svg" />
+    <Content Include="Previsio\images\e-caballos.svg" />
+    <Content Include="Previsio\images\e-camarones.svg" />
+    <Content Include="Previsio\images\e-cerdos.svg" />
+    <Content Include="Previsio\images\e-conejos.svg" />
+    <Content Include="Previsio\images\e-ganado-carne.svg" />
+    <Content Include="Previsio\images\e-perros.svg" />
+    <Content Include="Previsio\images\e-salud.svg" />
+    <Content Include="Previsio\images\escudos.png" />
+    <Content Include="Previsio\images\imago-footer.png" />
+    <Content Include="Previsio\images\imago-malta.svg" />
+    <Content Include="Previsio\images\line-chart.svg" />
+    <Content Include="Previsio\images\logo-maltacleyton.svg" />
+    <Content Include="Previsio\images\logo-smart-center.svg" />
+    <Content Include="Previsio\images\mapa.png" />
+    <Content Include="Previsio\images\n-aves.svg" />
+    <Content Include="Previsio\images\n-bovino.svg" />
+    <Content Include="Previsio\images\n-caprino.svg" />
+    <Content Include="Previsio\images\n-cerdos.svg" />
+    <Content Include="Previsio\images\n-huevo.svg" />
+    <Content Include="Previsio\images\n-ovino.svg" />
+    <Content Include="Previsio\images\neovia.svg" />
+    <Content Include="Previsio\images\portada_inicio.jpg" />
+    <Content Include="Previsio\images\portada_porcino.jpg" />
+    <Content Include="Previsio\js\bootstrap.min.js" />
+    <Content Include="Previsio\js\Chart.bundle.min.js" />
+    <Content Include="Previsio\js\jquery.min.js" />
+    <Content Include="Previsio\js\map_script.js" />
+    <Content Include="Previsio\js\owl.carousel.min.js" />
+    <Content Include="Previsio\ovino.html" />
+    <Content Include="Previsio\porcino.html" />
+    <Content Include="Previsio\prevision.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\js\min\app-min.js.map" />
+    <EntityDeploy Include="Models\MaltaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MaltaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MaltaModel.edmx.diagram">
+      <DependentUpon>MaltaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\template\Quotation.xlsx" />
+    <Content Include="Previsio\edos\aves\baja_california_sur.php" />
+    <Content Include="Previsio\edos\aves\distrito_federal.php" />
+    <Content Include="Previsio\edos\aves\queretaro.php" />
+    <Content Include="Previsio\edos\aves\zacatecas.php" />
+    <Content Include="Previsio\edos\bovino\aguascalientes.php" />
+    <Content Include="Previsio\edos\bovino\baja_california_sur.php" />
+    <Content Include="Previsio\edos\bovino\campeche.php" />
+    <Content Include="Previsio\edos\bovino\chiapas.php" />
+    <Content Include="Previsio\edos\bovino\coahuila.php" />
+    <Content Include="Previsio\edos\bovino\durango.php" />
+    <Content Include="Previsio\edos\bovino\guanajuato.php" />
+    <Content Include="Previsio\edos\bovino\jalisco.php" />
+    <Content Include="Previsio\edos\bovino\michoacan.php" />
+    <Content Include="Previsio\edos\bovino\oaxaca.php" />
+    <Content Include="Previsio\edos\bovino\sinaloa.php" />
+    <Content Include="Previsio\edos\bovino\sonora.php" />
+    <Content Include="Previsio\edos\bovino\veracruz.php" />
+    <Content Include="Previsio\edos\bovino\yucatan.php" />
+    <Content Include="Previsio\edos\bovino\zacatecas.php" />
+    <Content Include="Previsio\edos\caprino\aguascalientes.php" />
+    <Content Include="Previsio\edos\caprino\colima.php" />
+    <Content Include="Previsio\edos\caprino\jalisco.php" />
+    <Content Include="Previsio\edos\caprino\nuevo_leon.php" />
+    <Content Include="Previsio\edos\caprino\san_luis_potosi.php" />
+    <Content Include="Previsio\edos\huevo\aguascalientes.php" />
+    <Content Include="Previsio\edos\huevo\baja_california.php" />
+    <Content Include="Previsio\edos\huevo\baja_california_sur.php" />
+    <Content Include="Previsio\edos\huevo\campeche.php" />
+    <Content Include="Previsio\edos\huevo\chiapas.php" />
+    <Content Include="Previsio\edos\huevo\chihuahua.php" />
+    <Content Include="Previsio\edos\huevo\coahuila.php" />
+    <Content Include="Previsio\edos\huevo\colima.php" />
+    <Content Include="Previsio\edos\huevo\distrito_federal.php" />
+    <Content Include="Previsio\edos\huevo\durango.php" />
+    <Content Include="Previsio\edos\huevo\edo_mex.php" />
+    <Content Include="Previsio\edos\huevo\guanajuato.php" />
+    <Content Include="Previsio\edos\huevo\guerrero.php" />
+    <Content Include="Previsio\edos\huevo\jalisco.php" />
+    <Content Include="Previsio\edos\huevo\michoacan.php" />
+    <Content Include="Previsio\edos\huevo\morelos.php" />
+    <Content Include="Previsio\edos\huevo\nayarit.php" />
+    <Content Include="Previsio\edos\huevo\nuevo_leon.php" />
+    <Content Include="Previsio\edos\huevo\oaxaca.php" />
+    <Content Include="Previsio\edos\huevo\puebla.php" />
+    <Content Include="Previsio\edos\huevo\queretaro.php" />
+    <Content Include="Previsio\edos\huevo\quintana_roo.php" />
+    <Content Include="Previsio\edos\huevo\san_luis_potosi.php" />
+    <Content Include="Previsio\edos\huevo\sinaloa.php" />
+    <Content Include="Previsio\edos\huevo\sonora.php" />
+    <Content Include="Previsio\edos\huevo\tabasco.php" />
+    <Content Include="Previsio\edos\huevo\tamaulipas.php" />
+    <Content Include="Previsio\edos\huevo\veracruz.php" />
+    <Content Include="Previsio\edos\huevo\yucatan.php" />
+    <Content Include="Previsio\edos\huevo\zacatecas.php" />
+    <Content Include="Previsio\edos\ovino\aguascalientes.php" />
+    <Content Include="Previsio\edos\ovino\distrito_federal.php" />
+    <Content Include="Previsio\edos\ovino\guanajuato.php" />
+    <Content Include="Previsio\edos\ovino\jalisco.php" />
+    <Content Include="Previsio\edos\ovino\queretaro.php" />
+    <Content Include="Previsio\edos\ovino\san_luis_potosi.php" />
+    <Content Include="Previsio\edos\porcino\aguascalientes.php" />
+    <Content Include="Previsio\edos\porcino\colima.php" />
+    <Content Include="Previsio\edos\porcino\distrito_federal.php" />
+    <Content Include="Previsio\edos\porcino\durango.php" />
+    <Content Include="Previsio\edos\porcino\guanajuato.php" />
+    <Content Include="Previsio\edos\porcino\jalisco.php" />
+    <Content Include="Previsio\edos\porcino\michoacan.php" />
+    <Content Include="Previsio\edos\porcino\nuevo_leon.php" />
+    <Content Include="Previsio\edos\porcino\puebla.php" />
+    <Content Include="Previsio\edos\porcino\queretaro.php" />
+    <Content Include="Previsio\edos\porcino\sonora.php" />
+    <Content Include="Previsio\edos\porcino\veracruz.php" />
+    <Content Include="Previsio\edos\porcino\yucatan.php" />
+    <None Include="Properties\PublishProfiles\archivo.pubxml" />
+    <None Include="Properties\PublishProfiles\ftp.pubxml" />
+    <None Include="Properties\PublishProfiles\ifato.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\geo.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\porcino\bootstrap.min.js" />
+    <Content Include="Scripts\porcino\Chart.bundle.min.js" />
+    <Content Include="Scripts\porcino\jquery.min.js" />
+    <Content Include="Scripts\porcino\map_script.js" />
+    <Content Include="Scripts\porcino\owl.carousel.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\HtmlPage1.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Nav.cshtml" />
+    <Content Include="Views\Shared\_NavProductos.cshtml" />
+    <Content Include="Views\Productos\Especie.cshtml" />
+    <Content Include="Views\Shared\_NavContacto.cshtml" />
+    <Content Include="Views\Productos\Productos.cshtml" />
+    <Content Include="Views\Productos\Ficha.cshtml" />
+    <Content Include="Views\Home\Nosotros.cshtml" />
+    <Content Include="Views\SalesForce\Contacto.cshtml" />
+    <Content Include="Views\SalesForce\Vuelvete_distribuidor.cshtml" />
+    <Content Include="Views\Home\DondeComprar.cshtml" />
+    <Content Include="Views\Home\BolsaTrabajo.cshtml" />
+    <Content Include="Views\Home\AvisoPrivacidad.cshtml" />
+    <Content Include="Views\Productos\Busqueda.cshtml" />
+    <Content Include="Views\Home\Salud.cshtml" />
+    <Content Include="Views\Home\FichaSalud.cshtml" />
+    <Content Include="Views\Productos\Marcas.cshtml" />
+    <Content Include="Views\Home\Plantas.cshtml" />
+    <Content Include="Views\Productos\Marca.cshtml" />
+    <Content Include="Views\Shared\Acuicultura.cshtml" />
+    <Content Include="Views\Shared\Mascotas.cshtml" />
+    <Content Include="Views\Shared\Pecuarios.cshtml" />
+    <Content Include="Views\Shared\MenuProductos.cshtml" />
+    <Content Include="Views\Home\Cursos.cshtml" />
+    <Content Include="Views\Home\MapaSitio.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Ficha.cshtml" />
+    <Content Include="Views\Blog\Etiqueta.cshtml" />
+    <Content Include="Views\Blog\Noticias.cshtml" />
+    <Content Include="Views\Distribuidor\Index.cshtml" />
+    <Content Include="Views\Distribuidor\Red.cshtml" />
+    <Content Include="Views\Distribuidor\Construccion.cshtml" />
+    <Content Include="Views\Prevision\Index.cshtml" />
+    <Content Include="Views\Prevision\Porcino.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\img\caballo\" />
+    <Folder Include="Content\img\camaron\" />
+    <Folder Include="Content\img\conejo\" />
+    <Folder Include="Content\img\nutridor\" />
+    <Folder Include="Content\img\tilapia\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{343b3aa0-6c0c-41d5-84d6-d9a92f5336e9}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{ef19f803-3bdd-41f5-852d-4ae377287534}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{db88f36a-8817-4c7b-a692-90293476cc83}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52856</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52856/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

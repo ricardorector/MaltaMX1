@@ -1,0 +1,153 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Distribuidores";
+}
+
+<section id="template-header">
+    <div class="row">
+        <div class="large-10 medium-10 columns">
+            <div class="frase">
+                <h2>Distribuidores</h2>
+            </div>
+        </div>
+<!-- 
+        <div class="large-4 medium-4 columns">
+            <img src="img/imago-malta.svg" alt="">
+        </div> 
+-->
+    </div>
+</section>
+@model IEnumerable<malta.Models.DistribuidorEstado>
+
+        <section id="distribuidores">
+         
+            <div id="lista-distribuidores">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>En construcción...</h3>
+                    </div>
+                </div>
+                <div class="row small-up-1 medium-up-3 large-up-3">
+                    
+                </div>
+            </div>
+        </section>
+
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+   
+    $(function () {
+   
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+
+
+        var lista_ciudades = '@Html.Raw(ViewBag.html_ciudadest)';
+        lista_ciudades = (new Function("return [" + lista_ciudades + "];")());
+        var ciudad = $('#ciudad').val();
+
+        var estado = $('#estado').val();
+
+        $("#estado").change(function () {
+            $('#ciudad').html("");
+            var options_ciudades = "";
+            var estado = $('#estado').val();
+            for (var x = 0; x < lista_ciudades.length; x++) {
+                if (estado == lista_ciudades[x].Estado) {
+                    options_ciudades += "<option>" + lista_ciudades[x].Ciudad + "</option>";
+                }
+            }
+            $('#ciudad').html(options_ciudades);
+        });
+
+    });
+    function buscar() {
+        var ciudad = $('#ciudad').val();
+
+        var estado = $('#estado').val();
+        $('#lblEstado').html(estado);
+        $('#lblCiudad').html(ciudad);
+
+        request(estado, ciudad);
+    }
+    function datos(Id_distribuidor) {
+        $.ajax({
+            method: "GET",
+            url: "/Distribuidor/info_distribuidor",
+            data: { 'id':Id_distribuidor},
+            traditional: true,
+        }).done(function (msg) {
+            var arry = (new Function("return [" + msg + "];")());
+
+            var Barrio = arry[0]['Barrio'];
+            var C_P = arry[0]['C_P'];
+            var Celular = arry[0]['Celular'];
+            var Ciudad = arry[0]['Ciudad'];
+            var Direccion = arry[0]['Direccion'];
+            var Estado = arry[0]['Estado'];
+            var Horario = arry[0]['Horario'];
+            var Latitud = parseFloat(arry[0]['Latitud']);
+            var Longitud = parseFloat(arry[0]['Longitud']);
+            var Mail = arry[0]['Mail'];
+            var Mapa = arry[0]['Mapa'];
+            var Nombre_com = arry[0]['Nombre_com'];
+            var Nombre_fact = arry[0]['Nombre_fact'];
+            var Telefono = arry[0]['Telefono'];
+
+
+            var html = "<div class='large-4 medium-4 columns'>" +
+                            "<h4>" + Nombre_com + "</h4>" +
+                            "<p class='direccion'>" + Nombre_fact + "</p>" +
+                            "<p class='direccion'>" + Direccion + "" + Barrio + "</p>" +
+
+                            "<p class='cp'>C.P. " + C_P + ", " + Ciudad + ", " + Estado + "</p>" +
+                            "<p class='telefono'>" + Telefono + " Cel:" + Celular + "</p>" +
+                            "<p class='correo'><a href=''>" + Mail + "</a></p>" +
+                            "<p class='direccion'>" + Horario + "</p>" +
+                        "</div>";
+                        
+            $('#info_distr').html(html);
+            initMap(Latitud, Longitud);
+        });
+    }
+    //function request(estado, ciudad) {
+    function request(latitud, longitud) {
+        console.log(latitud + "---" + longitud);
+            $.ajax({
+                method: "GET",
+                url: "/Distribuidor/lista_distribuidores",
+                data: { 'lat1': latitud, 'lon1': longitud },
+                traditional: true,
+            })
+              .done(function (msg) {
+                  $('#tbl_distribuidores').html(msg);
+                  if (msg == "") {
+                      $('#tbl_distribuidores').html("No hay distribuidores en la cerca de tu ubicación");
+                  }
+                  //alert("Data Saved: " + msg);
+              });
+        }
+
+
+
+
+
+        function initMap( lat, lon) {
+            var myLatLng = { lat: lat, lng: lon};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: ''
+            });
+        }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXXdPnFhZP-Ipr99H19vdmVfe4WFrE3e0">
+</script>

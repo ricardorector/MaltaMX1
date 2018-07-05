@@ -1,0 +1,26 @@
+﻿.ui-widget-header {
+    background: #3c454e !important;
+    color: #fff !important;
+}
+
+.ui-dialog-title {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+
+.ui-icon-closethick {
+    display: none !important;
+}
+
+.ui-button-icon-only {
+    display: none !important;
+}
+
+.ui-dialog {
+    z-index: 99999 !important;
+}
+
+.ui-widget-overlay {
+    position: fixed !important;
+}

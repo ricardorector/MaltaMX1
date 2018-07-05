@@ -1,0 +1,45 @@
+﻿.divFrm {
+    background: #c8dcf1 !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
+    border-radius: 5px !important;
+    display: none;
+}
+
+    .divFrm label {
+        float: left !important;
+        width: 80px !important;
+        vertical-align: text-top !important;
+        margin: 5px 2px 0 0 !important;
+        font-weight: bold !important;
+        display: block;
+    }
+
+
+.inputWidth {
+    width: 255px !important;
+    height: 24px !important;
+}
+
+
+
+select {
+    cursor: pointer;
+}
+
+.divModalControls {
+    margin: 10px 0 0 0 !important;
+    padding-right: 10px;
+    text-align: right;
+    background-color: #327a81;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    height: 36px !important;
+}
+
+    .divModalControls input {
+        margin: 5px 0 0 0 !important;
+    }

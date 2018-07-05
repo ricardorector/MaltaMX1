@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string especie = ViewBag.especie;
+}
+
+
+@switch (especie)
+{
+    case "todos":
+        @Html.Partial("MenuProductos")
+        break;
+    case "pecuarios":
+        @Html.Partial("Pecuarios")
+        break;
+    case "mascotas":
+        @Html.Partial("Mascotas")
+        break;
+    case "acuicultura":
+        @Html.Partial("Acuicultura")
+        break;
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var ROOT = '@Url.Content("~/Content/")';
+        $('#template-header').parallax({ imageSrc: ROOT + 'img/bg-templete.jpg' });
+        $('#nosotros-header').parallax({ imageSrc: ROOT + 'img/bg-nosotros.jpg' });
+        $('#nosotros-identidad').parallax({ imageSrc: ROOT + 'img/bg-nosotros-historia.jpg' });
+        $('#nosotros-historia').parallax({ imageSrc: ROOT + 'img/bg-nosotros-neovia.jpg' });
+
+        $('#loop-1').parallax({ imageSrc: ROOT + 'img/bg-ganado-carne.jpg' });
+        $('#loop-2').parallax({ imageSrc: ROOT + 'img/bg-ganado-lechero.jpg' });
+        $('#loop-3').parallax({ imageSrc: ROOT + 'img/bg-borregos.jpg' });
+        $('#loop-4').parallax({ imageSrc: ROOT + 'img/bg-cerdos.jpg' });
+        $('#loop-5').parallax({ imageSrc: ROOT + 'img/bg-cabras.jpg' });
+        $('#loop-6').parallax({ imageSrc: ROOT + 'img/bg-aves-postura.jpg' });
+        $('#loop-7').parallax({ imageSrc: ROOT + 'img/bg-pollo-engorda.jpg' });
+        $('#loop-8').parallax({ imageSrc: ROOT + 'img/bg-gallos.jpg' });
+        $('#loop-9').parallax({ imageSrc: ROOT + 'img/bg-pavos.jpg' });
+        $('#loop-10').parallax({ imageSrc: ROOT + 'img/bg-codornices.jpg' });
+        $('#loop-11').parallax({ imageSrc: ROOT + 'img/bg-caballos.jpg' });
+        $('#loop-12').parallax({ imageSrc: ROOT + 'img/bg-conejos.jpg' });
+        $('#loop-13').parallax({ imageSrc: ROOT + 'img/bg-camarones.jpg' });
+        $('#loop-14').parallax({ imageSrc: ROOT + 'img/bg-truchas.jpg' });
+        $('#loop-15').parallax({ imageSrc: ROOT + 'img/bg-tilapias.jpg' });
+        $('#loop-16').parallax({ imageSrc: ROOT + 'img/bg-bagres.jpg' });
+        $('#loop-17').parallax({ imageSrc: ROOT + 'img/bg-perros.jpg' });
+        $('#loop-18').parallax({ imageSrc: ROOT + 'img/bg-gatos.jpg' });
+        $('#loop-19').parallax({ imageSrc: ROOT + 'img/bg-qualian.jpg' });
+    });
+</script>

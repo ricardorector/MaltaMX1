@@ -1,0 +1,227 @@
+::selection {
+  background: #399fdf;
+  color: #fff;
+}
+::-moz-selection {
+  background: #399fdf;
+  color: #fff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #3c454e;
+  -webkit-font-smoothing: antialiased;
+}
+#nav-productos {
+  height: 100%;
+  z-index: 1001;
+  position: fixed;
+  background: #3c454e;
+  box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out all;
+  width: 50px;
+  overflow: hidden;
+}
+#nav-productos a {
+  display: block;
+  color: #fff;
+  padding: .4375em;
+  background: #3c454e;
+}
+#nav-productos a:hover {
+  background: #009bff;
+}
+#nav-productos a span.text-link {
+  display: none;
+  transition: 3s ease-in-out all;
+  margin-left: 1em;
+  position: absolute;
+  padding-top: .35em;
+  font-weight: 700;
+}
+#nav-productos a:hover .text-link {
+  display: inline-block;
+}
+#nav-productos:hover a span.text-link {
+  display: inline-block;
+}
+#main-nav {
+  background: #3c454e;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  z-index: 999;
+  height: 6.25em;
+}
+#main-nav .logo {
+  width: 9.125em;
+  margin-top: .75em;
+  margin-bottom: .625em;
+  margin-left: 5em;
+  position: absolute;
+}
+#main-nav .logo img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+#top-nav {
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.top-link {
+  display: inline-block;
+  background: #131920;
+  color: #fff;
+  transition: 0.3s ease-in-out all;
+}
+.top-link .link-icon i {
+  color: #fff;
+}
+.top-link .link-icon {
+  background: #576065;
+  display: inline-block;
+  padding: .5em 1em;
+  transition: 0.3s ease-in-out all;
+}
+.top-link .link-icon:hover {
+  background: #009bff;
+}
+.top-link:hover {
+  background: #3c454e;
+}
+.top-link .link-text {
+  display: inline-block;
+  font-size: .8125em;
+  padding: 0 .75em;
+}
+.top-link .link-text a {
+  color: #fff;
+  text-transform: none;
+  margin: 0 .75em;
+  font-weight: 700;
+}
+.top-link .link-text a:hover {
+  color: #009bff;
+}
+.link-text em {
+  text-transform: none;
+  font-style: italic;
+  font-size: .75em;
+  margin-right: .5em;
+}
+.logo-smart-center {
+  display: inline-block;
+}
+.logo-smart-center img {
+  margin-top: -5px;
+  margin-right: .625em;
+}
+#main-menu {
+  text-align: right;
+  position: absolute;
+  right: .5em;
+  bottom: .25em;
+}
+#main-menu a {
+  margin-bottom: 0;
+}
+#main-menu a.button {
+  background: #11161c;
+  border-radius: 50%;
+  padding: .75em .8em;
+}
+ul#links-main-menu {
+  list-style: none;
+  padding: none;
+  margin: none;
+  display: inline-block;
+}
+#links-main-menu li {
+  display: inline-block;
+}
+#links-main-menu a {
+  font-size: .8125em;
+  color: #fff;
+  background: rgba(17, 22, 28, 0.6);
+  padding: .5em 1em;
+  border-radius: 1em;
+  font-weight: 700;
+  transition: 0.3s ease-in-out all;
+}
+#links-main-menu a:hover {
+  background: #11161c;
+}
+.button {
+  font-weight: 700;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  border-radius: 0;
+  transition: 0.3s ease-in-out all;
+}
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1em 0;
+  padding: 0.85em 1.5em;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9em;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #3c454e;
+  color: #fefefe;
+}
+footer {
+  background: #576065;
+  padding: .15em;
+}
+footer small,
+footer p {
+  margin: 0;
+  padding-top: .5em;
+  color: #fff;
+}
+footer a {
+  color: #009bff;
+  margin-right: .85em;
+  font-weight: 700;
+}
+.neovia {
+  text-align: right;
+  margin-top: .35em;
+}
+.image_sep {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.image_sep > img {
+  width: 100%;
+  position: relative;
+  top: 15%;
+}
+
+
+footer .rowmain {
+  padding: 1em 0;
+  max-width: 1200px;
+  margin: auto;
+}

@@ -1,0 +1,205 @@
+body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #fff url(../img/GrisConstelaciones.jpg) repeat-y center 50% 50%;
+}
+
+.fixHeader {
+    width: 100%;
+    height: 100px;
+    background-color: #3c454e;
+}
+
+    .fixHeader img {
+        width: 190px !important;
+        height: 102px !important;
+    }
+
+    .fixHeader .closeSession {
+        float: right;
+        color: #fff;
+        margin: 62px 80px 0 0;
+        text-decoration: none;
+        cursor: pointer !important;
+        vertical-align: middle;
+        display: inline-block;
+        z-index: 9999 !important;
+    }
+
+        .fixHeader .closeSession img {
+            height: 12px !important;
+            width: 12px !important;
+        }
+
+    .fixHeader .userName {
+        float: right;
+        color: #fff;
+        margin: 60px 80px 0 0;
+    }
+
+        .fixHeader .userName img {
+            height: 16px !important;
+            width: 16px !important;
+        }
+
+    .fixHeader .title {
+        color: #fff;
+        position: absolute;
+        font-size: 28px;
+        margin: 50px 0 0 220px;
+    }
+
+.fixSubHeader {
+    width: 100%;
+    height: 10px;
+    background-color: #808080;
+}
+
+    .fixSubHeader img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .fixSubHeader .cotiza {
+        position: absolute;
+        font-size: 38px;
+        margin: 40px 0 0 400px !important;
+        font-weight: bold;
+    }
+
+    .fixSubHeader .datos {
+        position: absolute;
+        font-size: 28px;
+        margin: 100px 0 0 600px !important;
+        font-weight: bold;
+    }
+
+.content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    zoom: 1;
+}
+
+    .content .titleLogin {
+        color: #3c454e;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 37px;
+    }
+
+    .content #enter {
+        width: 150px;
+        float: right;
+        margin-right: 35px;
+        color: white !important;
+        background-color: #3c454e !important;
+    }
+
+    .content #send {
+        width: 150px;
+        color: white !important;
+        background-color: #3c454e !important;
+        float: right;
+        margin-right: 36px;
+        margin-top: 4px;
+    }
+
+.login {
+    width: 600px;
+    height: 340px;
+    margin-top: 350px;
+}
+
+.cot {
+    width: 100%;
+    height: 100%;
+}
+
+.send {
+    margin-top: 110px !important;
+    padding-top: 0 !important;
+}
+
+    .send h1 {
+        color: #3c454e;
+    }
+
+.box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica;
+    color: #fff;
+    padding: 10px 0px;
+}
+
+    .box input, textarea {
+        display: block;
+        width: 500px;
+        margin: 5px auto;
+        padding: 15px;
+        background: rgba(0,0,0,0.2);
+        color: #000;
+        border: 0;
+    }
+
+        .box input:focus, .box input:active, .box button:focus, .box button:active {
+            outline: none;
+        }
+
+        .box input[type=button] {
+            background: #009bff;
+            border: 0;
+            color: #fff;
+            padding: 10px;
+            font-size: 20px;
+            width: 330px;
+            margin: 20px auto;
+            display: block;
+            cursor: pointer;
+        }
+
+            .box input[type=button]:active {
+                background: #27ae60;
+            }
+
+    .box p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+        .box p span {
+            cursor: pointer;
+            color: #666;
+        }
+
+    .box .titledescription {
+        color: #3c454e;
+        font-size: 14px;
+        margin-left: 22px;
+    }
+
+textarea {
+    overflow: hidden;
+}
+
+.cotizador {
+    margin-top: -150px !important;
+}
+
+.fs18 {
+    font-size: 18px !important;
+}
+
+.recover {
+    display: inline-block;
+    margin-left: 212px;
+    margin-top: 30px;
+    color: #3c454e !important;
+}

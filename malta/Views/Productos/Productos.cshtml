@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Productos";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model IEnumerable<malta.Models.ProductosMarca>
+@{
+    List<malta.Models.ProductosMarca> lista = (List<malta.Models.ProductosMarca>)ViewBag.lst_productos;
+    var primer_array = new malta.Models.ProductosMarca();
+    string nombre_linea = "";
+    string desc_linea = "";
+    string img_marca = "";
+    string lista_especieid = "";
+    string lista_especie_nombre = "";
+    string slogan = "";
+
+    if (ViewBag.numero > 0)
+    {
+
+        primer_array = lista[0];
+        nombre_linea = primer_array.Linea_nombre;
+        desc_linea = primer_array.Linea_descripcion;
+        img_marca = primer_array.Marca_imagen;
+        lista_especieid = primer_array.Especie_id;
+        lista_especie_nombre = primer_array.Especie_nombre;
+        slogan = primer_array.Slogan;
+
+        if (!primer_array.Imagen.Equals(""))
+        { img_marca = primer_array.Imagen; }
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+                $(function () {
+                var ROOT = '@Url.Content("~/")';
+                var img = '@Html.DisplayFor(modelItem => primer_array.Marca_background)';
+                var existe = UrlExists(ROOT + img);
+                if (!existe) { img = 'Content/img/bg-perros.jpg'; }
+                $('#header-cerdo').parallax({ imageSrc: ROOT + img });
+
+            });
+            function UrlExists(url) {
+                var http = new XMLHttpRequest();
+                http.open('HEAD', url, false);
+                http.send();
+                return http.status != 404;
+            }
+        </script>
+        <section id="header-cerdo" class="title">
+            <div class="row">
+                <div class="large-8 medium-8 columns">
+                    <div class="frase">
+                        <p class="lead">@slogan</p>
+                    </div>
+                </div>
+                <div class="large-4 medium-4 columns">
+                    <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => primer_array.Especie_imagen)" alt="">
+                </div>
+            </div>
+        </section>
+    }
+}
+
+<!--
+<div id="nav-especie">
+    <ul>
+        <li><a href="/Productos/Marcas" class="active">Productos</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Artículos de interés</a></li>
+        <li><a href="#">Calculadora Nutricional</a></li>
+        <li><a href="#">Planes de alimentación</a></li>
+    </ul>
+</div>
+    -->
+@{
+    if (ViewBag.lst_productos.Count<0)
+    {
+        <section class="linea-productos">
+            <div class="premium-cerdo">
+                <div class="row">
+                    <div class="large-12 medium-12 columns text-center">
+                        <div class="descripcion-linea">
+                            <h3>Por el momento no tenemos productos disponibles.</h3>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section class="linea-productos">
+            <div class="premium-cerdo">
+                <div class="row">
+
+                    <div class="large-3 medium-3 columns ">
+                        <img src="@Url.Content("~/")@img_marca" alt="">
+                    </div>
+                    <div class="large-9 medium-9 columns">
+                        <div class="breadcrumbs">
+                            <a href="/Productos/especie?id_especie=@lista_especieid">@lista_especie_nombre</a> / @nombre_linea
+                        </div>
+                        <div class="descripcion-linea">
+                            <h3>@nombre_linea</h3>
+                            <p>@desc_linea</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
+
+
+
+<section id="loop-productos">
+    <div class="row smal-up-2 medium-up-3 large-up-3 text-center">    
+        @foreach (var item in (List<malta.Models.ProductosMarca>)ViewBag.lst_productos)
+        {
+            <div class="column">
+                <div class="foto-producto"><a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)">
+                    <img src="@Url.Content("~/")@Html.DisplayFor(modelItem => item.Imagen)" alt="">
+                    </a></div>
+                <h3><a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Nombre)</a></h3>
+                <p><a href="/Productos/ficha?id_producto=@Html.DisplayFor(modelItem => item.Id)" class="button small">Conoce más</a></p>
+            </div>            
+        }
+    </div>
+</section>

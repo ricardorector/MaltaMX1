@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f782f2f7152429094f1c3c297dcf516" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="maltaModel.detalles_producto" Width="1.5" PointX="9.375" PointY="0.5" />
+        <EntityTypeShape EntityType="maltaModel.especies" Width="1.5" PointX="1" PointY="1" />
+        <EntityTypeShape EntityType="maltaModel.marcas" Width="1.5" PointX="3.125" PointY="0.875" />
+        <EntityTypeShape EntityType="maltaModel.productos" Width="1.5" PointX="7.625" PointY="0.625" />
+        <AssociationConnector Association="maltaModel.FK_detalles_producto_productos" />
+        <AssociationConnector Association="maltaModel.FK_productos_productos" />
+        <AssociationConnector Association="maltaModel.FK_marcas_especies" />
+        <EntityTypeShape EntityType="maltaModel.lineas" Width="1.5" PointX="5.125" PointY="0.875" />
+        <AssociationConnector Association="maltaModel.FK_lineas_marcas" />
+        <AssociationConnector Association="maltaModel.FK_productos_lineas" />
+        <EntityTypeShape EntityType="maltaModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="9.5" />
+        <EntityTypeShape EntityType="maltaModel.detalles_salud" Width="1.5" PointX="3.5" PointY="5.125" />
+        <EntityTypeShape EntityType="maltaModel.salud" Width="1.5" PointX="5.875" PointY="4.625" />
+        <EntityTypeShape EntityType="maltaModel.blog" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="maltaModel.distribuidores" Width="1.5" PointX="9.875" PointY="4.75" />
+        <EntityTypeShape EntityType="maltaModel.camion" Width="1.5" PointX="9.875" PointY="16.25" />
+        <EntityTypeShape EntityType="maltaModel.correo" Width="1.5" PointX="7.625" PointY="16.625" />
+        <EntityTypeShape EntityType="maltaModel.cotizacion" Width="1.5" PointX="12.125" PointY="15.375" />
+        <EntityTypeShape EntityType="maltaModel.medidas" Width="1.5" PointX="7.625" PointY="11.5" />
+        <EntityTypeShape EntityType="maltaModel.planta" Width="1.5" PointX="5.375" PointY="17.25" />
+        <EntityTypeShape EntityType="maltaModel.plantilla" Width="1.5" PointX="7.625" PointY="20.5" />
+        <EntityTypeShape EntityType="maltaModel.precios" Width="1.5" PointX="9.875" PointY="10.625" />
+        <EntityTypeShape EntityType="maltaModel.puesto" Width="1.5" PointX="5.375" PointY="14" />
+        <EntityTypeShape EntityType="maltaModel.usuario" Width="1.5" PointX="7.625" PointY="26.5" />
+        <EntityTypeShape EntityType="maltaModel.cotizacionDetalle" Width="1.5" PointX="14.375" PointY="8.5" />
+        <EntityTypeShape EntityType="maltaModel.visitas" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="maltaModel.FK_cotizacion_camion" />
+        <AssociationConnector Association="maltaModel.FK_correo_planta" />
+        <AssociationConnector Association="maltaModel.FK_correo_puesto" />
+        <AssociationConnector Association="maltaModel.FK_cotizacion_distribuidores" />
+        <AssociationConnector Association="maltaModel.FK_cotizacion_usuario1" />
+        <AssociationConnector Association="maltaModel.FK_cotizacionDetalle_cotizacion" />
+        <AssociationConnector Association="maltaModel.FK_cotizacionDetalle_medidas" />
+        <AssociationConnector Association="maltaModel.FK_precios_medidas" />
+        <AssociationConnector Association="maltaModel.FK_plantilla_planta" />
+        <AssociationConnector Association="maltaModel.FK_precios_planta" />
+        <AssociationConnector Association="maltaModel.FK_usuario_planta1" />
+        <AssociationConnector Association="maltaModel.FK_precios_productos" />
+        <AssociationConnector Association="maltaModel.FK_cotizacionDetalle_productos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

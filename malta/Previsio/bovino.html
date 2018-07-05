@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precios Futuros por Especie</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/map.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+    
+  <div id="main-nav">
+    <div class="logo">
+    <a href="/">
+      <img src="images/logo-maltacleyton.svg" alt="maltaCleyton">
+    </a>
+    </div>
+    <div id="top-nav">
+      <div class="top-link">
+        <div class="link-icon">
+          <a href="https://web.facebook.com/MaltaCleytonMex/?ref=ts&fref=ts" target="_blank"><i class="fa fa-facebook-official"></i></a>
+        </div>
+        <div class="link-icon">
+          <a href="https://twitter.com/MaltaCleytonMex" target="_blank"><i class="fa fa-twitter-square"></i></a>
+        </div>
+      </div>
+      <div class="top-link ">
+        <div class="link-icon "><i class="fa fa-phone"></i></div>
+        <div class="link-text">
+          <div class="logo-smart-center">
+            <img src="images/logo-smart-center.svg" alt="Smart Center">
+          </div> <strong>01800 507 4600</strong>
+        </div>
+      </div>
+    </div>
+    <div id="main-menu">
+      <ul id="links-main-menu">
+        <li><a href="#" target="_blank">Distribuidores</a></li>
+      </ul> <a class="button" data-open="buscador"><i class="fa fa-search"></i></a>
+    </div>
+  </div>
+
+  <!--inicio-->
+  <div class="image_sep">
+    <img src="images/portada_inicio.jpg" width="100%">
+  </div>
+  <div id="mainWrap">
+    <div class="container">
+      <div class="row clearfix">
+      <div class="col-md-4">
+        <div class="protein_icon">
+          <img src="images/n-bovino.svg">
+        </div>
+        <hr>
+        <div id="estados" class="clearfix">
+          <ul>
+            <li><a href="#" data-target="edos/bovino/aguascalientes">Aguascalientes</a></li>
+            <li><a href="#" data-target="edos/bovino/baja_california_sur">Baja California Sur</a></li>
+            <li><a href="#" data-target="edos/bovino/campeche">Campeche</a></li>
+            <li><a href="#" data-target="edos/bovino/coahuila">Coahuila</a></li>
+            <li><a href="#" data-target="edos/bovino/chiapas">Chiapas</a></li>
+            <li><a href="#" data-target="edos/bovino/durango">Durango</a></li>
+            <li><a href="#" data-target="edos/bovino/guanajuato">Guanajuato</a></li>
+            <li><a href="#" data-target="edos/bovino/jalisco">Jalisco</a></li>
+            <li><a href="#" data-target="edos/bovino/michoacan">Michoacán</a></li>
+            <li><a href="#" data-target="edos/bovino/oaxaca">Oaxaca</a></li>
+            <li><a href="#" data-target="edos/bovino/sinaloa">Sinaloa</a></li>
+            <li><a href="#" data-target="edos/bovino/sonora">Sonora</a></li>
+            <li><a href="#" data-target="edos/bovino/veracruz">Veracruz</a></li>
+            <li><a href="#" data-target="edos/bovino/yucatan">Yucatán</a></li>
+            <li><a href="#" data-target="edos/bovino/zacatecas">Zacatecas</a></li>
+          </ul>
+        </div>
+        <div class="clearfix">
+          <a href="prevision.html" class="change_protein"><span class="bounce"><<</span>Seleccionar otra proteína</a>
+        </div>
+      </div>
+      
+      <div class="col-md-8 col-sm-12">
+        <div id="content" class="clearfix">
+          <h2 class="text-center">Selecciona un estado y observa las estadísticas históricas y de proyección.</h2>
+        </div>
+      </div>
+        <div class="col-md-12">
+          <canvas id="mixed-chart" width="800" height="450"></canvas>
+          <ul class="indicators">
+            <li><img src="images/line_blue.svg" width="55px"> HISTORICO</li>
+            <li><img src="images/line_orange.svg" width="55px"> PROYECCIÓN</li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+        <br><br>
+        <br><br>
+      </div><!--work-->
+    </div>
+  </div>
+  <!--fin-->
+
+  <footer class="clearfix">
+    <div class="rowmain">
+        <div class="col-sm-1">
+          <img src="images/imago-footer.png" alt="Malta Cleyton">
+        </div>
+        <div class="col-sm-9">
+          <div id="links-footer"> <a href="#">Plantas en la República Mexicana</a>
+            <a href="#">Aviso de Privacidad</a>
+            <a href="#">Mapa del sitio</a>
+            <a href="mailto:servicioaclientes@maltatexo.com.mx">servicioaclientes@maltatexo.com.mx</a>
+          </div>
+          <p><small>®Marcas registradas por Malta Texo de México S.A. de C.V. y/o Grupo Neovia.</small>
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <div class="neovia">
+            <a href="https://www.neovia-group.com/" target="_blank">
+              <img src="images/neovia.svg" alt="Neovia" class="img-responsive">
+            </a>
+          </div>
+        </div>
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/Chart.bundle.min.js"></script>
+  <script src="js/map_script.js"></script>
+  <script type="text/javascript">
+    // stacked bar with 2 unstacked lines - nope
+var barChartData = {
+  labels: ['ene-17', 'feb-17', 'mar-17', 'abr-17', 'may-17', 'jun-17', 'jul-17', 'ago-17', 'sep-17', 'oct-17', 'nov-17', 'dic-17', 'ene-18', 'feb-18', 'mar-18', 'abr-18'],
+  datasets: [{
+   type: 'line',
+    fill:true,
+    label: 'Precio $/Kg',
+    id: "y-axis-1",
+    backgroundColor:[
+      'rgba(87,96,101,0.9)'
+    ],
+    data: [30.72, 30.38, 30.46, 30.40, 31.44, 32.42, 32.43, 32.84, 32.66, 32.94, 32.01, 32.54, 33.17, 32.94, 32.68, 32.04]
+  }, {
+     type: 'bar',
+    label: 'Ton',
+    id: "y-axis-0",
+    backgroundColor:[
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(0,155,255,0.9)',
+      'rgba(255,100,0,0.9)',
+      'rgba(255,100,0,0.9)',
+      'rgba(255,100,0,0.9)',
+      'rgba(255,100,0,0.9)',
+      'rgba(255,100,0,0.9)',
+      'rgba(255,100,0,0.9)'
+    ],
+    data: [153.153, 153.926, 152.759, 152.433, 154.847, 158.949, 164.642, 163.397, 163.454, 163.375, 165.773, 167.638, 165.661, 169.955, 170.848, 171.140]
+  }]
+};
+
+
+var ctx = document.getElementById("mixed-chart");
+// allocate and initialize a chart
+var ch = new Chart(ctx, {
+  type: 'bar',
+  data: barChartData,
+  options: {
+    title: {
+      display: true,
+      text: "PRECIO MENSUAL BOVINO [$/Kg] Y PRODUCCIÓN [TON]"
+    },
+    tooltips: {
+      mode: 'label'
+    },
+    legend: { display: false },
+    responsive: true,
+    scales: {
+      xAxes: [{
+        stacked: false,
+        display: true,
+        scaleLabel: {   
+            display: true,
+            labelString: 'PRODUCCIÓN'
+        }
+      }],
+      yAxes: [{
+        stacked: false,
+        position: "left",
+        id: "y-axis-0",
+      }]
+    }
+  }
+});
+  </script>
+</body>
+</html>
